@@ -19,8 +19,6 @@
 	
 ?>
 
-<!DOCTYPE html>
-
 <html>
 
 	<head>
