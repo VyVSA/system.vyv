@@ -1,0 +1,245 @@
+
+/*
+autor: Oscar Gómez
+fecha de creación: 19/09/2020
+fecha de modificación: 09/10/2020
+*/
+
+/*Estilor por elementos*/
+
+:root{
+	--color-primario: #107627;
+	--color-secundario: #FFFFFF;
+
+	--color-primario-hover: #FFFFFF;
+	--color-secundario-hover: #107627;
+}
+
+body{
+	background-image: url('../image/double-bubble-outline.png');
+}
+
+
+/* Menú */
+nav{
+	margin: 0px !important;
+	padding: 0px !important;
+}
+
+a{
+	text-align: center;
+}
+
+a:hover{
+	background-color: var(--color-primario-hover);
+	color: var(--color-secundario-hover) !important;
+	border-radius: 3px;
+}
+
+.nav-link{
+	color: var(--color-secundario) !important;
+}
+
+.active{
+	color: var(--color-secundario-hover) !important;
+	border-radius: 3px;
+	background-color: var(--color-primario-hover) !important;
+}
+/* Botón del menú collapse */
+.navbar-toggler{
+	margin: 4px;
+}
+
+.nav-item{
+	margin-top: 4px;
+	margin-bottom: 4px;
+	margin-right: 2px;
+	margin-left: 2px;
+}
+
+
+/* Tabla de productos */
+thead{
+	background-color: var(--color-primario) !important;
+	color: var(--color-secundario);
+}
+
+tr > td:hover{
+	background-color: #DDDDDD !important;
+}
+
+td, th{
+	padding: 5px !important;
+}
+
+.table{
+	color: #000000 !important;
+	font-size: 80%;
+}
+
+
+/* Botones */
+.btn{
+	background-color: var(--color-primario) !important;
+	color: var(--color-secundario) !important;
+	border-style: solid;
+	border-radius: 4px;
+	border-color: var(--color-primario);
+}
+
+.btn:hover{
+	background-color: var(--color-primario-hover) !important;
+	color: var(--color-secundario-hover) !important;
+	border-style: solid;
+	border-radius: 4px;
+	border-color: var(--color-primario);
+}
+
+
+/* inputs */
+#codBar{
+	text-align: center !important;
+	margin-top: 10px !important;
+}
+
+
+.form-control{
+	margin-bottom: 10px !important;
+	font-size: 80%;
+}
+
+.input-width{
+	width: 100% !important;
+}
+
+.form-control:focus{
+	-webkit-box-shadow: none !important;
+	box-shadow: none !important;
+	border-color: var(--color-primario) !important;
+}
+
+input[type=file], input[type=file]::-webkit-file-upload-button {
+    cursor: pointer !important; 
+}
+
+input#input-imagen{
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+}
+
+#input-guardar{
+	float: right;
+	clear: both;
+	font-size: 87% !important;
+	width: 48.5%;
+}
+
+#input-cancelar{
+	font-size: 87% !important;
+	width: 48.5%;
+}
+
+
+/* Divs */
+div#div-body{
+	background-color: var(--color-secundario);
+	margin-top: 10px;
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 5px;
+	border-color: #DDDDDD;
+}
+
+div#menu{
+	padding: 0px !important;
+}
+
+div#div-input-imagen{
+	background-color: var(--color-primario);
+
+	position: relative;
+
+	width: 100%;
+	padding: 7px;
+
+	margin-bottom: 10px;
+
+	border-radius: 4px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: var(--color-primario);
+
+	color: var(--color-secundario);
+	text-align: center;
+}
+
+div#div-input-imagen:hover{
+	color: var(--color-primario);
+	background-color: var(--color-secundario);
+}
+
+#div-nav{
+	border-bottom: solid;
+	border-width: 1px;
+	border-color: var(--color-primario);
+	background-color: var(--color-primario);
+}
+
+#div-image{
+	padding: 0px;
+
+	margin-top: 10px;
+	margin-left: 0px;
+	margin-right: 0px;
+
+	border-style: solid !important;
+	border-color: #DDDDDD !important;
+	border-width: 1px !important;
+	border-radius: 3px !important;
+
+	background-color: #FFFFFF !important;
+
+	overflow: hidden !important;
+	position: relative !important;
+}
+
+#div-head-form{
+	background-color: var(--color-primario);
+	padding: 0px;
+	border-style: solid;
+	border-bottom-style: none;
+	border-width: 1px;
+	height: 35px;
+	font-size: 95%;
+	margin-bottom: 0px !important;
+	margin-top: 40px;
+	border-color: var(--color-primario) !important;
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+	color: var(--color-secundario);
+	padding: 5px;
+	padding-left: 12px;
+}
+
+#div-form{
+	padding-bottom: 75px !important;
+	padding-top: 45px !important;
+	padding-left: 15px;
+	padding-right: 15px;
+
+	margin-top: 0px !important;
+	margin-bottom: 40px !important;
+
+	border-style: solid;
+	border-width: 1px;
+	border-color: #DDDDDD;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	background-color: #F6FFF9;
+}
