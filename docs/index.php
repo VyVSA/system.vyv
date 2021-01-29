@@ -1,18 +1,5 @@
 <?php
 
-	/*
-        autor: Grupo 3
-		fecha de creación: 12/10/2020
-		
-        modificado por: Oscar Gómez
-		fecha de modificación: 24/01/2021
-		
-		modificado por: ...
-		fecha de modificación: ...
-
-		...
-    */
-
 	include_once '../php/class.usuario.php';
 	include_once '../php/class.usuario.control.php';
 	include_once '../php/conexion.inc.php';
