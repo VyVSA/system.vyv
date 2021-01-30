@@ -323,10 +323,15 @@ input{
 	background-color: #FFFFFF;
 	border-color: #252F3A;
 	border-width: 2px !important;
+	border-radius: 5px !important;
 }
 
 .form-control:focus{
 	-webkit-box-shadow: none !important;
 	box-shadow: none !important;
 	border-color: #252F3A !important;
+}
+
+div#input-iniciar-sesion{
+	margin-top: 20px !important;
 }
