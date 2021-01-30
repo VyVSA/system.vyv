@@ -1,24 +1,70 @@
 
-/*
-autor: Oscar Gómez
-fecha de creación: 19/09/2020
-fecha de modificación: 09/10/2020
+/*  reset css  ----------  */
+
+/*  http://meyerweb.com/eric/tools/css/reset/ 
+    v2.0 | 20110126
+    License: none (public domain)
 */
+
+/*  Reseteo de cajas... anchura total = width  */
+*{box-sizing: border-box;}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/*  HTML5 display-role reset for older browsers  */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+    list-style: none;
+    list-style-type: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
 
 /*Estilor por elementos*/
 
 :root{
-	--color-primario: #107627;
+	--color-primario: #252F3A;
 	--color-secundario: #FFFFFF;
 
 	--color-primario-hover: #FFFFFF;
-	--color-secundario-hover: #107627;
+	--color-secundario-hover: #252F3A;
 }
-
-body{
-	background-image: url('../image/double-bubble-outline.png');
-}
-
 
 /* Menú */
 nav{
@@ -102,21 +148,17 @@ td, th{
 	margin-top: 10px !important;
 }
 
-
+/*
 .form-control{
 	margin-bottom: 10px !important;
 	font-size: 80%;
 }
-
+*/
 .input-width{
 	width: 100% !important;
 }
 
-.form-control:focus{
-	-webkit-box-shadow: none !important;
-	box-shadow: none !important;
-	border-color: var(--color-primario) !important;
-}
+
 
 input[type=file], input[type=file]::-webkit-file-upload-button {
     cursor: pointer !important; 
@@ -244,9 +286,58 @@ div#div-input-imagen:hover{
 	background-color: #F6FFF9;
 }
 
+
+/*login*/
+
+div.div-content{
+	width: 100%;
+	top: 0px;
+	bottom: 0px;
+	display: flex;
+  	justify-content: center;
+	align-items: center;
+	position: absolute;
+}
+
 div.div-login{
 	border-style: solid;
 	border-color: #252F3A;
 	height: 450px;
-	width: 350;
+	width: 350px;
+	border-width: 2px;
+	border-radius: 5px;
+	background-color: #FBFBFC;
+}
+
+*{font-family: 'Roboto', sans-serif !important; font-style: normal !important;}
+
+label{
+	font-size: 20px;
+	padding-top: 20px;
+}
+
+input{
+	font-size: 16px;
+	height: 40px;
+	padding-top: 10px;
+	background-color: #FFFFFF;
+	border-color: #252F3A;
+	border-width: 2px !important;
+	border-radius: 5px !important;
+}
+
+.form-control:focus{
+	-webkit-box-shadow: none !important;
+	box-shadow: none !important;
+	border-color: #252F3A !important;
+}
+
+#input-sesion{
+	margin-top: 20px !important;
+	width: 100%;
+	font-size: 20px;
+	background-color: #252F3A;
+	color: #FFFFFF;
+	padding: 0px;
+	border-color: #252F3A !important;
 }
