@@ -357,4 +357,10 @@ p#recuperar{
 	width: 100%;
 	font-size: 16px;
 	text-align: center;
+	margin-top: 10px;
+}
+
+p#recuperar:hover{
+	text-decoration: underline;
+	cursor: pointer !important;
 }
