@@ -9,7 +9,6 @@
 			if(!isset(self::$conexion))	{
 
 				try {
-
 					include_once 'config.inc.php';
 					self::$conexion = new PDO("mysql:host=$nombre_servidor; dbname=$nombre_base_datos", $nombre_usuario, $contrasenha);
 					self::$conexion -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
