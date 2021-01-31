@@ -309,7 +309,7 @@ div.div-login{
 	background-color: #FBFBFC;
 }
 
-*{font-family: 'Roboto', sans-serif !important; font-style: normal !important; color: #252F3A;}
+*{font-family: 'Roboto', sans-serif !important; font-style: normal !important; color: #252F3A !important;}
 
 label{
 	font-size: 20px;
