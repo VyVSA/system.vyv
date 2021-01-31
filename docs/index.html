@@ -83,27 +83,29 @@
 			include_once 'php/conexion.inc.php';
 		</script>
 		<div class="div-content">
-			<div class="row">
-				<div class="col-2"></div>
-				<div class="col">
-					<img >
+			<div class="div-login">
+				<div class="row">
+					<div class="col"></div>
+					<div class="col-6" id="div-logo">
+						<img src="image/vyv_logo_3.png">
+					</div>
+					<div class="col"></div>
 				</div>
-				<div class="col-2"></div>
-			</div>
-			<div class="div-login row">
-				<div class="col"></div>
-				<div class="col-10">
-					<form>
-						<label class="form-label">Documento</label>
-						<input type="text" id="input-documento" class="form-control" aria-describedby="passwordHelpBlock" onkeyup="puntitos(this,this.value.charAt(this.value.length-1))">
+				<div class="row">
+					<div class="col"></div>
+					<div class="col-10">
+						<form>
+							<label class="form-label">Documento</label>
+							<input type="text" id="input-documento" class="form-control" aria-describedby="passwordHelpBlock" onkeyup="puntitos(this,this.value.charAt(this.value.length-1))">
 
-						<label for="inputPassword5" class="form-label">Contraseña</label>
-						<input type="password" id="input-contrasenha" class="form-control" aria-describedby="passwordHelpBlock">
+							<label for="inputPassword5" class="form-label">Contraseña</label>
+							<input type="password" id="input-contrasenha" class="form-control" aria-describedby="passwordHelpBlock">
 
-						<input type="submit" value="Iniciar sesión" id="input-sesion" class="btn">
-					</form>
+							<input type="submit" value="Iniciar sesión" id="input-sesion" class="btn">
+						</form>
+					</div>
+					<div class="col"></div>
 				</div>
-				<div class="col"></div>
 			</div>
 		</div>
 
