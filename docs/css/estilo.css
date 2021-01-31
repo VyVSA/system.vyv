@@ -59,11 +59,11 @@ table {
 /*Estilor por elementos*/
 
 :root{
-	--color-primario: #107627;
+	--color-primario: #252F3A;
 	--color-secundario: #FFFFFF;
 
 	--color-primario-hover: #FFFFFF;
-	--color-secundario-hover: #107627;
+	--color-secundario-hover: #252F3A;
 }
 
 /* Menú */
@@ -309,7 +309,7 @@ div.div-login{
 	background-color: #FBFBFC;
 }
 
-*{font-family: 'Roboto', sans-serif !important; font-style: normal !important;}
+*{font-family: 'Roboto', sans-serif !important; font-style: normal !important; color: #252F3A;}
 
 label{
 	font-size: 20px;
@@ -332,6 +332,29 @@ input{
 	border-color: #252F3A !important;
 }
 
-div#input-iniciar-sesion{
+#input-sesion{
 	margin-top: 20px !important;
+	width: 100%;
+	font-size: 20px;
+	background-color: #252F3A;
+	color: #FFFFFF;
+	padding: 0px;
+	border-color: #252F3A !important;
+}
+
+img{
+	width: 150px;
+	margin-top: 20px;
+}
+
+#div-logo{
+	display:table-cell;
+	vertical-align:middle;
+	text-align:center;
+}
+
+p#recuperar{
+	width: 100%;
+	font-size: 16px;
+	text-align: center;
 }
