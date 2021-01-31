@@ -341,3 +341,14 @@ input{
 	padding: 0px;
 	border-color: #252F3A !important;
 }
+
+img{
+	width: 150px;
+	margin-top: 20px;
+}
+
+#div-logo{
+	display:table-cell;
+	vertical-align:middle;
+	text-align:center;
+}
