@@ -309,7 +309,7 @@ div.div-login{
 	background-color: #FBFBFC;
 }
 
-*{font-family: 'Roboto', sans-serif !important; font-style: normal !important;}
+*{font-family: 'Roboto', sans-serif !important; font-style: normal !important; color: #252F3A;}
 
 label{
 	font-size: 20px;
@@ -351,4 +351,10 @@ img{
 	display:table-cell;
 	vertical-align:middle;
 	text-align:center;
+}
+
+p#recuperar{
+	width: 100%;
+	font-size: 16px;
+	text-align: center;
 }
