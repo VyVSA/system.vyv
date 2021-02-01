@@ -18,7 +18,7 @@
 
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
-		<title>Iniciar sesión</title>
+		<title>V&V S.A. - Iniciar sesión</title>
 
 		<script language="JavaScript">
 
@@ -71,8 +71,8 @@
 			<div class="div-login">
 
 				<!-- logo de la empresa -->
-				<div class="img-logo">
-					<img src="image/vyv_logo_3.png">
+				<div class="div-logo">
+					<img class="img-logo" src="image/vyv_logo_3.png">
 				</div>
 
 				<!-- formulario de inicio de sesión -->
