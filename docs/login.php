@@ -22,8 +22,7 @@
 
 		<script language="JavaScript">
 
-			//Código para colocar 
-			//los indicadores de miles mientras se escribe
+			/* Código para colocar los indicadores de miles mientras se escribe */
 			function puntitos(donde,caracter){
 				pat = /[\*,\+,\(,\),\?,\\,\$,\[,\],\^]/
 				valor = donde.value
@@ -85,19 +84,25 @@
 					<div class="col"></div>
 					<div class="col-10">
 						<form method="POST">
+
+							<!-- input documento -->
 							<label class="form-label">Documento</label>
 							<input type="text" name="documento" id="input-documento" class="form-control" aria-describedby="passwordHelpBlock" onkeyup="puntitos(this,this.value.charAt(this.value.length-1))">
 
+							<!-- input contraseña -->
 							<label for="inputPassword5" class="form-label">Contraseña</label>
 							<input type="password" name="contrasenha" id="input-contrasenha" class="form-control" aria-describedby="passwordHelpBlock">
 
+							<!-- input submit iniciar sesión -->
 							<input type="submit" name="sesion" id="input-sesion" class="btn" value="Iniciar sesión">
+							
 						</form>
 						<p id="recuperar">¿Has olvidado la contraseña?</p>
 					</div>
 					<div class="col"></div>
 				</div>
 
+				<!-- conexión a la base de datos y consulta a la misma para comprobar las credenciales -->
 				<?php
 					Conexion :: abrir_conexion();
 				?>
@@ -105,7 +110,7 @@
 			</div>
 		</div>
 
-		<!--Javascript de boostrap-->
+		<!-- Javascript de boostrap -->
  		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 	</body>
 </html>
