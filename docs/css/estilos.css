@@ -7,7 +7,7 @@
 */
 
 /*  Reseteo de cajas... anchura total = width  */
-*{box-sizing: border-box;}
+*{box-sizing: border-box !important;}
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -293,8 +293,10 @@ div.div-content{
 	width: 100%;
 	top: 0px;
 	bottom: 0px;
+	/*justify-content: center; alinea el contenido en el centro*/
+	  
+	/* alinea verticalmente el contenido*/
 	display: flex;
-  	justify-content: center;
 	align-items: center;
 	position: absolute;
 }
@@ -307,9 +309,13 @@ div.div-login{
 	border-width: 2px;
 	border-radius: 5px;
 	background-color: #FBFBFC;
+
+	/* alinea el contenedor en el centro*/
+	margin-left: auto;
+	margin-right: auto;
 }
 
-*{font-family: 'Roboto', sans-serif !important; font-style: normal !important; color: #252F3A;}
+*{font-family: 'Roboto', sans-serif !important; font-style: normal !important; color: #252F3A !important; border-style: solid !important;}
 
 label{
 	font-size: 20px;
@@ -357,4 +363,10 @@ p#recuperar{
 	width: 100%;
 	font-size: 16px;
 	text-align: center;
+	margin-top: 10px;
+}
+
+p#recuperar:hover{
+	text-decoration: underline;
+	cursor: pointer !important;
 }
