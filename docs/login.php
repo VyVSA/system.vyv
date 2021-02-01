@@ -71,36 +71,28 @@
 			<div class="div-login">
 
 				<!-- logo de la empresa -->
-				<div class="row">
-					<div class="col"></div>
-					<div class="col-6" id="div-logo">
-						<img src="image/vyv_logo_3.png">
-					</div>
-					<div class="col"></div>
+				<div class="img-logo">
+					<img src="image/vyv_logo_3.png">
 				</div>
 
 				<!-- formulario de inicio de sesión -->
-				<div class="row">
-					<div class="col"></div>
-					<div class="col-10">
-						<form method="POST">
+				<form method="POST">
 
-							<!-- input documento -->
-							<label class="form-label">Documento</label>
-							<input type="text" name="documento" id="input-documento" class="form-control" aria-describedby="passwordHelpBlock" onkeyup="puntitos(this,this.value.charAt(this.value.length-1))">
+					<!-- input documento -->
+					<label class="form-label">Documento</label>
+					<input type="text" name="documento" id="input-documento" class="form-control" aria-describedby="passwordHelpBlock" onkeyup="puntitos(this,this.value.charAt(this.value.length-1))">
 
-							<!-- input contraseña -->
-							<label for="inputPassword5" class="form-label">Contraseña</label>
-							<input type="password" name="contrasenha" id="input-contrasenha" class="form-control" aria-describedby="passwordHelpBlock">
+					<!-- input contraseña -->
+					<label class="form-label">Contraseña</label>
+					<input type="password" name="contrasenha" id="input-contrasenha" class="form-control" aria-describedby="passwordHelpBlock">
 
-							<!-- input submit iniciar sesión -->
-							<input type="submit" name="sesion" id="input-sesion" class="btn" value="Iniciar sesión">
-							
-						</form>
-						<p id="recuperar">¿Has olvidado la contraseña?</p>
-					</div>
-					<div class="col"></div>
-				</div>
+					<!-- input submit iniciar sesión -->
+					<input type="submit" name="sesion" id="input-sesion" class="btn" value="Iniciar sesión">
+
+				</form>
+
+				<!-- indicaciones para recuperar la contraseña -->
+				<p id="recuperar">¿Has olvidado la contraseña?</p>
 
 				<!-- conexión a la base de datos y consulta a la misma para comprobar las credenciales -->
 				<?php
