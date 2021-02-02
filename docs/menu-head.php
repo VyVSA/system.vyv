@@ -1,6 +1,4 @@
-
 <div class="menu">
-
     <img class="logo" src="image/vyv_logo_3.png" alt="logo vyv s.a.">
 
     <lu class="items">
@@ -18,5 +16,4 @@
         </svg>
         Cuenta
     </button>
-
 </div>
