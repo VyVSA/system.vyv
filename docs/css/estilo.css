@@ -75,10 +75,10 @@ table {
 
 h1{font-size: 28px !important;}
 h2{font-size: 24px !important;}
-h3{font-size: 20px;}
-h4{font-size: 18px;}
-h5{font-size: 16px;}
-h6{font-size: 14px;}
+h3{font-size: 20px !important;}
+h4{font-size: 18px !important;}
+h5{font-size: 16px !important;}
+h6{font-size: 14px !important;}
 
 
 /* botones */
@@ -187,7 +187,7 @@ div.menu{
     display: flex;
     align-items: center;
 
-    background: var(--color-navfooter);
+	background: var(--color-navfooter);
 }
 
 /*  logo de la empresa  ----------  */
@@ -213,8 +213,11 @@ lu.items{
 }
 
 lu.items li.item-menu{
-    display: inline-block; 
-    padding: 0px 20px 0px 20px;
+	display: inline-block;
+	padding: 0px;
+	margin: 0px 15px;
+
+	vertical-align: middle;
 }
 
 lu.items li.item-menu h2:hover{
@@ -226,19 +229,48 @@ lu.items li.item-menu h2:hover{
 lu.items li.item-menu h2.active{
     font-weight: 500;
     text-align: center;
-    color: var(--color-primario);
 }
 
 lu.items li.item-menu h2{
     font-weight: 300;
     text-align: center;
-    color: var(--color-primario);
 }
 
 li.item-menu h2{
-    width: 120px;
-    display: inline-block;
+	margin: 0px;
+    width: 115px;
+	display: inline-block;
 }
+
+.item-cuenta{
+	margin-left: 280px !important;
+}
+
+.item-cuenta:hover{
+	cursor: pointer;
+}
+
+.item-cuenta h2{
+	vertical-align: middle !important;
+	width: 85px !important;
+}
+
+.btn-cuenta{
+	position: absolute;
+	right: 100px;
+	background-color: #D1D9E2;
+	border-color: #D1D9E2;
+	border-style: none;
+	width: 135px;
+	font-size: 24px;
+	font-weight: 300;
+	text-align: left;
+}
+
+.btn-cuenta:hover{
+	font-weight: 500;
+}
+
 
 
 /* diseño responsibe */
