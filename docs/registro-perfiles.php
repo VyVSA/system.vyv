@@ -9,7 +9,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-		<link rel="stylesheet" type="text/css" href="css/estilo.css">
+		<link rel="stylesheet" type="text/css" href="css/registro-perfiles.css">
 
 		<link rel="preconnect" href="https://fonts.gstatic.com">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap">
@@ -25,8 +25,13 @@
 		<?php include 'menu-head.php' ?>
 
 		<div class="div-content">
-			<div class="div-login">
+			<div class="div-registro-perfil">
 
+				<label class="font-24px label-title">Registro de Perfil</label>
+
+				<label class="font-18px label-name">Nombre</label>
+				<input type="text" name="nombre" id="input-nombre" class="form-control">
+				
 				<!-- logo de la empresa -->
 				<div class="div-logo">
 					<img class="img-logo" src="image/vyv_logo_3.png">
