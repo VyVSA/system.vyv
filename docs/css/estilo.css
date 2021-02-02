@@ -242,19 +242,6 @@ li.item-menu h2{
 	display: inline-block;
 }
 
-.item-cuenta{
-	margin-left: 280px !important;
-}
-
-.item-cuenta:hover{
-	cursor: pointer;
-}
-
-.item-cuenta h2{
-	vertical-align: middle !important;
-	width: 85px !important;
-}
-
 .btn-cuenta{
 	position: absolute;
 	right: 100px;
@@ -270,7 +257,6 @@ li.item-menu h2{
 .btn-cuenta:hover{
 	font-weight: 500;
 }
-
 
 
 /* diseño responsibe */
