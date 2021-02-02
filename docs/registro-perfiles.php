@@ -21,6 +21,7 @@
 		<title>V&V S.A. - Registro de perfiles</title>
 	</head>
 	<body>
+		<!-- Inclusión del menú en la cabacera de la página -->
 		<?php include 'menu-head.php' ?>
 
 		<div class="div-content">
