@@ -71,9 +71,7 @@
 			<div class="div-login">
 
 				<!-- logo de la empresa -->
-				<div class="div-logo">
-					<img class="img-logo" src="image/vyv_logo_3.png">
-				</div>
+				<div class="div-logo"><img class="img-logo" src="image/vyv_logo_3.png"></div>
 
 				<!-- formulario de inicio de sesión -->
 				<form method="POST">
@@ -95,9 +93,7 @@
 				<p id="recuperar">¿Has olvidado la contraseña?</p>
 
 				<!-- conexión a la base de datos y consulta a la misma para comprobar las credenciales -->
-				<?php
-					Conexion :: abrir_conexion();
-				?>
+				<?php Conexion :: abrir_conexion(); ?>
 
 			</div>
 		</div>
