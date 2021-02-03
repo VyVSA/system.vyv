@@ -28,7 +28,7 @@
 			<div class="div-registro-perfil">
 
 				<!-- formulario de registro de perfiles -->
-				<form method="POST">
+				<form method="POST" name="form-registro">
 					<label class="font-24px label-title">Registro de Perfil</label>
 
 					<label class="font-18px label-name">Nombre</label>
@@ -342,7 +342,11 @@
 			</div>
 		</div>
 
+		<script language="JavaScript">
+			document.getElementById("item-perfiles").className = "active";
+		</script>
+
 		<!-- Javascript de boostrap -->
- 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+		<src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></src=>
 	</body>
 </html>
