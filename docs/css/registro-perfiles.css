@@ -92,6 +92,12 @@ h6{font-size: 14px !important;}
 	border-style: solid;
 	border-radius: 20px;
 	border-color: var(--color-primario);
+	margin-top: 30px;
+	width: 280px;
+	height: 40px;
+	font-size: 20px !important;
+	vertical-align: middle !important;
+	padding: 0px !important;
 }
 
 .btn:hover{
@@ -100,6 +106,10 @@ h6{font-size: 14px !important;}
 	border-style: solid;
 	border-radius: 4px;
 	border-color: var(--color-primario);
+}
+
+#input-cancelar{
+	margin-right: 17px;
 }
 
 /*  estilos del menú  ----------  */
@@ -229,6 +239,10 @@ input{
 
 
 /*  border de los inputs  ----------  */
+.form-control{
+	margin-top: 5px;
+}
+
 .form-control:focus{
 	-webkit-box-shadow: none !important;
 	box-shadow: none !important;
@@ -263,4 +277,86 @@ div.div-logo{text-align: center;}
 img.img-logo{
 	width: 150px !important;
 	margin-top: 20px !important;
+}
+
+
+
+
+.check-text input {
+	display: none !important;
+}
+
+.check-text input ~ svg {
+	cursor: pointer !important;
+}
+
+.check-text input ~ .checked {
+	display: none !important;
+}
+
+.check-text input:checked ~ .checked {
+	display: inline-block !important;
+}
+
+.check-text input:checked ~ .unchecked {
+	display: none !important;
+}
+
+.check-text input:disabled ~ svg {
+	cursor: not-allowed !important;
+}
+
+
+div.functions-perfiles{
+	width: 265px !important;
+	margin-top: 30px;
+	/*border: 1px solid #252F3A;*/
+	display: inline-block;
+	margin-right: 40px;
+}
+
+div.functions-usuarios{
+	width: 265px !important;
+	margin-top: 30px;
+	/*border: 1px solid #252F3A;*/
+	display: inline-block;
+	margin-right: 40px;
+}
+
+div.functions-productos{
+	width: 265px !important;
+	margin-top: 30px;
+	/*border: 1px solid #252F3A;*/
+	display: inline-block;
+	margin-right: 40px;
+}
+
+div.functions-compras{
+	width: 265px;
+	margin-top: 30px;
+	display: inline-block;
+	/*border: 1px solid #252F3A;*/
+}
+
+div.functions-pedidos{
+	width: 265px;
+	margin-top: 30px;
+	display: inline-block;
+	/*border: 1px solid #252F3A;*/
+}
+
+.label-function{
+	width: 220px;
+	/*border: 1px solid #252F3A;*/
+	vertical-align: middle;
+	height: 25px;
+	margin-left: 10px;
+}
+
+.check-text{
+	/*border: 1px solid #252F3A;*/
+}
+
+.label-margin-top{
+	margin-top: 15px;
 }
