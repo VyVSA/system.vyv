@@ -71,7 +71,7 @@
 			<div class="div-login">
 
 				<!-- logo de la empresa -->
-				<div class="div-logo"><img class="img-logo" src="image/vyv_logo_3.png"></div>
+				<div class="div-logo"><img class="img-logo" src="image/vyv_logo.png" alt="logo vyv s.a."></div>
 
 				<!-- formulario de inicio de sesión -->
 				<form method="POST">
