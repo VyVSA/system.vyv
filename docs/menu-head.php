@@ -1,12 +1,12 @@
 <div class="menu">
-    <img class="logo" src="image/vyv_logo_3.png" alt="logo vyv s.a.">
+    <img class="logo" src="image/vyv_logo.png" alt="logo vyv s.a.">
 
     <lu class="items">
-        <li class="item-menu" id="item-perfiles"><h2 class="">Pefiles</h2></li>
-        <li class="item-menu" id="item-usuarios"><h2 class="">Usuarios</h2></li>
-        <li class="item-menu" id="item-productos"><h2 class="">Productos</h2></li>
-        <li class="item-menu" id="item-compras"><h2 class="">Compras</h2></li>
-        <li class="item-menu" id="item-ventas"><h2 class="">Ventas</h2></li>
+        <li class="item-menu"><h2 id="item-perfiles" class="">Pefiles</h2></li>
+        <li class="item-menu"><h2 id="item-usuarios" class="">Usuarios</h2></li>
+        <li class="item-menu"><h2 id="item-productos" class="">Productos</h2></li>
+        <li class="item-menu"><h2 id="item-compras" class="">Compras</h2></li>
+        <li class="item-menu"><h2 id="item-ventas" class="">Ventas</h2></li>
     </lu>
             
     <button class="btn-cuenta">
