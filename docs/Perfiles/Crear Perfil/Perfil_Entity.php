@@ -1,44 +1,27 @@
 <?php
 
-declare(strict_types=1);
+	class Perfil_Entity{
 
-namespace Crear Perfil;
+		private $id;
+		private $nombre;
+		private $funciones = array();
 
-class Perfil_Entity
-{
+		public function __construct($id, $nombre, $funciones){
 
-	private Integer $id;
+		}
 
-	private String $nombre;
+		public function actualizar($funciones){
+			return null;
+		}
 
-	private array $funciones;
+		public function getFunciones(){
+			return $funciones;
+		}
 
-	private Integer $tipo;
+		public function getId(){
+			return $id;
+		}
 
-
-
-
-
-	public function __construct()
-	{
-		// ...
 	}
 
-	public function Perfil_Entity(Integer $id, String $nombre, Integer $funciones, Integer $tipo)
-	{
-		// TODO implement here
-	}
-
-	public function actualizar(Integer $funciones): void
-	{
-		// TODO implement here
-		return null;
-	}
-
-	public function get_tipo(): Integer
-	{
-		// TODO implement here
-		return null;
-	}
-
-}
+?>
