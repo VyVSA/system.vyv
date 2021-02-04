@@ -1,51 +1,31 @@
 <?php
 
-declare(strict_types=1);
+	class Lista_Perfiles{
 
-namespace Crear Perfil;
+		private $perfiles = array();
 
-class Lista_Perfiles
-{
+		public function __construct(){
+			
+		}
 
-	private array $perfiles;
+		public function verificar($funciones): boolean{
+			return false;
+		}
 
+		public function getPerfiles(): array{
+			return $perfiles;
+		}
 
+		public function agregar($perfil){
+			return null;
+		}
 
+		public function eliminar($id): boolean{
+			return false;
+		}
 
+		public function buscar( $id){
+			return null;
+		}
 
-	public function __construct()
-	{
-		// ...
 	}
-
-	public function verificar(Integer $funciones): boolean
-	{
-		// TODO implement here
-		return false;
-	}
-
-	public function get_perfiles(): array
-	{
-		// TODO implement here
-		return [];
-	}
-
-	public function agregar([object Object] $perfil): void
-	{
-		// TODO implement here
-		return null;
-	}
-
-	public function eliminar(Integer $id): boolean
-	{
-		// TODO implement here
-		return false;
-	}
-
-	public function buscar(Integer $id): [object Object]
-	{
-		// TODO implement here
-		return null;
-	}
-
-}
