@@ -1,19 +1,19 @@
 <?php
 
-class Perfil_Boundary{
+	class Perfil_Boundary{
 
-	private $nombre;
-	private $funciones = array(); /* array */
+		private $nombre;
+		private $funciones = array(); /* array */
 
-	public function __construct($nombre, $funciones){
-		$this->nombre = $nombre;
-		$this->funciones = $funciones;
+		public function __construct($nombre, $funciones){
+			$this->nombre = $nombre;
+			$this->funciones = $funciones;
+		}
+
+		public function registrar($nombre, $funciones){
+			
+		}
+
 	}
-
-	public function registrar($nombre, $funciones){
-		
-	}
-
-}
 
 ?>
