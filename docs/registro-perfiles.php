@@ -1,5 +1,6 @@
 <?php
 	include_once 'php/conexion.inc.php';
+	include_once 'perfiles/crear-perfil/Perfil_Boundary.php';
 ?>
 
 <html>
