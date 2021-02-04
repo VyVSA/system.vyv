@@ -1,24 +1,15 @@
 <?php
 
-declare(strict_types=1);
+	class Perfil_Control{
 
-namespace Crear Perfil;
+		public function __construct(){}
 
-class Perfil_Control
-{
+		public function registrar($nombre, $funciones): boolean{
+			
+			return false;
 
+		}
 
-
-
-	public function __construct()
-	{
-		// ...
 	}
 
-	public function registrar(String $nombre, Integer $funciones, Integer $tipo): boolean
-	{
-		// TODO implement here
-		return false;
-	}
-
-}
+?>
