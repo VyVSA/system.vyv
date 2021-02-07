@@ -1,6 +1,7 @@
 <?php
-	include_once 'php/conexion.inc.php';
-	include_once 'perfiles/crear-perfil/Perfil_Boundary.php';
+	include_once '../conexion.inc.php';
+	include_once 'crear-perfil/Perfil_Boundary.php';
+	include_once 'crear-perfil/Perfil_Control.php';
 ?>
 
 <html>
@@ -8,7 +9,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-		<link rel="stylesheet" type="text/css" href="css/registro-perfiles.css">
+		<link rel="stylesheet" type="text/css" href="../../css/registro-perfil.css">
 
 		<link rel="preconnect" href="https://fonts.gstatic.com">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap">
@@ -21,7 +22,7 @@
 	</head>
 	<body>
 		<!-- Inclusión del menú en la cabacera de la página -->
-		<?php include 'menu-head.php' ?>
+		<?php include '../../menu-head.php' ?>
 
 		<div class="div-content">
 			<div class="div-registro-perfil">
@@ -405,10 +406,12 @@
 							if (isset($_POST['mantener-pedido'])) {array_push($funciones, $_POST['mantener-pedido']);}
 							if (isset($_POST['bajar-pedido'])) {array_push($funciones, $_POST['bajar-pedido']);}
 
-							$perfil = new Perfil_Boundary($nombre, $funciones);
-							$perfil->registrar($nombre, $funciones);
-							
 							Conexion::abrir_conexion();
+							$conexion = Conexion::obtener_conexion();
+							$perfil = new Perfil_Boundary($conexion, $nombre, $funciones);
+							$perfil->registrar();
+
+							
 
 							Conexion::cerrar_conexion();
 						}
