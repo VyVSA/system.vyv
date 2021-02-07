@@ -1,5 +1,5 @@
 <div class="menu">
-    <img class="logo" src="image/vyv_logo.png" alt="logo vyv s.a.">
+    <img class="logo" src="../../image/vyv_logo.png" alt="logo vyv s.a.">
 
     <lu class="items">
         <li class="item-menu"><h2 id="item-perfiles" class="">Pefiles</h2></li>
