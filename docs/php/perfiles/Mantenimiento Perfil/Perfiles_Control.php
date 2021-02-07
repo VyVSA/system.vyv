@@ -1,35 +1,19 @@
 <?php
 
-declare(strict_types=1);
+class Perfiles_Control{
 
-namespace Mantenimiento Perfil;
-
-class Perfiles_Control
-{
-
-
-
-
-	public function __construct()
-	{
-		// ...
+	public function __construct(){
 	}
 
-	public function listar_perfiles(): array
-	{
-		// TODO implement here
+	public function listar_perfiles(){
 		return [];
 	}
 
-	public function eliminar_perfil(Integer $id): boolean
-	{
-		// TODO implement here
+	public function eliminar_perfil($id){
 		return false;
 	}
 
-	public function actualizar(Integer $id, Integer $funciones): void
-	{
-		// TODO implement here
+	public function actualizar($id, $funciones){
 		return null;
 	}
 
