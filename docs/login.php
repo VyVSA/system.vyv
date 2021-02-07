@@ -1,6 +1,4 @@
 <?php
-	include_once 'php/class.usuario.php';
-	include_once 'php/class.usuario.control.php';
 	include_once 'php/conexion.inc.php';
 ?>
 
