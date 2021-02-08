@@ -216,8 +216,8 @@ li.item-menu h2{
 
 .width-100{width: 100%;}
 
-input{
-	font-size: 16px;
+input, select{
+	font-size: 16px !important;
 	height: 35px;
 	padding-top: 10px;
 	background-color: var(--color-secundario);
@@ -226,6 +226,7 @@ input{
 	border-radius: 5px !important;
 }
 
+select{padding-top: 4px !important;}
 
 /*  border de los inputs  ----------  */
 .form-control{margin-top: 5px;}

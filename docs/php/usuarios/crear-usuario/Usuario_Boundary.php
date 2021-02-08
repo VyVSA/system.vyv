@@ -4,6 +4,7 @@
 
 	class Usuario_Boundary{
 
+		private $conexion;
 		private $documento;
 		private $nombres;
 		private $apellidos;
@@ -12,7 +13,8 @@
 		private $direccion;
 		private $perfil;
 
-		public function __construct($documento, $nombres, $apellidos, $celular, $email, $direccion, $perfil){
+		public function __construct($conexion, $documento, $nombres, $apellidos, $celular, $email, $direccion, $perfil){
+			$this->conexion = $conexion;
 			$this->documento = $documento;
 			$this->nombres = $nombres;
 			$this->apellidos = $apellidos;
@@ -24,7 +26,7 @@
 
 		public function registrar(){
 			$usuarioControl = new Usuario_Control();
-			$usuarioControl->registrar($this->documento, $this->nombres, $this->apellidos, $this->celular, $this->email, $this->direccion, $this->perfil);
+			$usuarioControl->registrar($this->conexion, $this->documento, $this->nombres, $this->apellidos, $this->celular, $this->email, $this->direccion, $this->perfil);
 		}
 
 		public function actualizar($id, $documento, $nombres, $apellidos, $celular, $email, $direccion){

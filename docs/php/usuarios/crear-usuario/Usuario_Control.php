@@ -8,14 +8,21 @@
 			return false;
 		}
 
-		public function registrar($documento, $nombres, $apellidos, $celular, $email, $direccion, $perfil){
+		public function registrar($conexion, $documento, $nombres, $apellidos, $celular, $email, $direccion, $perfil){
 			
 			/* registro del nuevo perfil */
 			try {
 				$querySql="	INSERT INTO
-								usuario
+								usuario(
+									documento,
+									nombre,
+									apellido,
+									celular,
+									email,
+									direccion,
+									perfil
+								)
 							VALUES(
-								'',
 								'$documento',
 								'$nombres',
 								'$apellidos',
@@ -24,7 +31,6 @@
 								'$direccion',
 								'$perfil'
 							)";
-
 				$sentencia = $conexion->prepare($querySql);
 				$sentencia->execute();
 			} catch (Exception $e) {

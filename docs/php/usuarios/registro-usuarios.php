@@ -8,7 +8,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-		<link rel="stylesheet" type="text/css" href="../../css/registro-usuario.css">
+		<link rel="stylesheet" type="text/css" href="../../css/registro-usuarios.css">
 
 		<link rel="preconnect" href="https://fonts.gstatic.com">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap">
@@ -50,7 +50,31 @@
 
 					<label class="font-18px label">perfil</label>
 					<div class="input-group divv">
-						<input type="text" name="perfil" id="input-perfil" class="form-control">
+
+						<?php
+							/*$querySqlFunciones = 	"SELECT 
+														id_funcion
+													FROM
+														perfil_funcion
+													WHERE
+														";*/
+							$querySql = "SELECT * FROM perfil;";
+							Conexion::abrir_conexion();
+							$conexion = Conexion::obtener_conexion();
+							$sentencia = $conexion->prepare($querySql);
+							$sentencia->execute();
+							$perfiles = $sentencia->fetchAll();
+							Conexion::cerrar_conexion();
+						?>
+
+						<select name="perfil" id="input-perfil" class="form-control input-group">
+							<option></option>
+							<?php
+								foreach ($perfiles as $perfil) {
+									?><option value="<?php echo $perfil[0]?>"><?php echo $perfil[1]?></option><?php
+								}
+							?>
+						</select>	
 						<div class="input-group-prepend">
 							<button type="button" id="button-funciones" class="btn form-control" onclick="">Funciones</button>
 						</div>
@@ -78,7 +102,7 @@
 						Conexion::abrir_conexion();
 						$conexion = Conexion::obtener_conexion();
 
-						$usuario = new Usuario_Boundary($documento, $nombres, $apellidos, $celular, $email, $direccion, $perfil);
+						$usuario = new Usuario_Boundary($conexion, $documento, $nombres, $apellidos, $celular, $email, $direccion, $perfil);
 						$usuario->registrar();
 						Conexion::cerrar_conexion();
 					}

@@ -2,8 +2,8 @@
     <img class="logo" src="../../image/vyv_logo.png" alt="logo vyv s.a.">
 
     <lu class="items">
-        <li class="item-menu"><h2 id="item-perfiles" class="">Pefiles</h2></li>
-        <li class="item-menu"><h2 id="item-usuarios" class="">Usuarios</h2></li>
+        <li class="item-menu"><h2 id="item-perfiles" class="php/perfiles/registro-perfiles.php">Pefiles</h2></li>
+        <li class="item-menu"><h2 id="item-usuarios" class="php/usuarios/registro-usuarios.php">Usuarios</h2></li>
         <li class="item-menu"><h2 id="item-productos" class="">Productos</h2></li>
         <li class="item-menu"><h2 id="item-compras" class="">Compras</h2></li>
         <li class="item-menu"><h2 id="item-ventas" class="">Ventas</h2></li>
