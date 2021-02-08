@@ -1,5 +1,6 @@
 <?php
 	include_once '../conexion.inc.php';
+	include_once 'crear-usuario/Usuario_Boundary.php';
 ?>
 
 <html>
@@ -48,8 +49,12 @@
 					<input type="text" name="direccion" class="form-control width-100">
 
 					<label class="font-18px label">perfil</label>
-					<input type="text" name="perfil" class="form-control width-100">
-
+					<div class="input-group divv">
+						<input type="text" name="perfil" id="input-perfil" class="form-control">
+						<div class="input-group-prepend">
+							<button type="button" id="button-funciones" class="btn form-control" onclick="">Funciones</button>
+						</div>
+					</div>
 					<!-- input submit iniciar sesión -->
 					<input type="submit" name="cancelar" id="input-cancelar" class="btn" value="Cancelar">
 
@@ -61,44 +66,21 @@
 				<?php
 
 					if (isset($_POST['registrar'])) {
-						if (isset($_POST['nombre'])) {
-							$nombre = $_POST['nombre'];
-							$funciones = array();
 
-							if (isset($_POST['visualizar-perfil'])) {array_push($funciones, $_POST['visualizar-perfil']);}
-							if (isset($_POST['registrar-perfil'])) {array_push($funciones, $_POST['registrar-perfil']);}
-							if (isset($_POST['mantener-perfil'])) {array_push($funciones, $_POST['mantener-perfil']);}
-							if (isset($_POST['bajar-perfil'])) {array_push($funciones, $_POST['bajar-perfil']);}
-							
-							if (isset($_POST['visualizar-usuario'])) {array_push($funciones, $_POST['visualizar-usuario']);}
-							if (isset($_POST['registrar-usuario'])) {array_push($funciones, $_POST['registrar-usuario']);}
-							if (isset($_POST['mantener-usuario'])) {array_push($funciones, $_POST['mantener-usuario']);	}
-							if (isset($_POST['bajar-usuario'])) {array_push($funciones, $_POST['bajar-usuario']);}
-							
-							if (isset($_POST['visualizar-producto'])) {array_push($funciones, $_POST['visualizar-producto']);}
-							if (isset($_POST['registrar-producto'])) {array_push($funciones, $_POST['registrar-producto']);}
-							if (isset($_POST['mantener-producto'])) {array_push($funciones, $_POST['mantener-producto']);}
-							if (isset($_POST['bajar-producto'])) {array_push($funciones, $_POST['bajar-producto']);}
-							
-							if (isset($_POST['visualizar-compra'])) {array_push($funciones, $_POST['visualizar-compra']);}
-							if (isset($_POST['registrar-compra'])) {array_push($funciones, $_POST['registrar-compra']);}
-							if (isset($_POST['mantener-compra'])) {array_push($funciones, $_POST['mantener-compra']);}
-							if (isset($_POST['bajar-compra'])) {array_push($funciones, $_POST['bajar-compra']);}
-							
-							if (isset($_POST['visualizar-pedido'])) {array_push($funciones, $_POST['visualizar-pedido']);}
-							if (isset($_POST['registrar-pedido'])) {array_push($funciones, $_POST['registrar-pedido']);}
-							if (isset($_POST['mantener-pedido'])) {array_push($funciones, $_POST['mantener-pedido']);}
-							if (isset($_POST['bajar-pedido'])) {array_push($funciones, $_POST['bajar-pedido']);}
+						$documento = $_POST['documento'];
+						$nombres = $_POST['nombres'];
+						$apellidos = $_POST['apellidos'];
+						$celular = $_POST['celular'];
+						$email = $_POST['email'];
+						$direccion = $_POST['direccion'];
+						$perfil = $_POST['perfil'];
 
-							Conexion::abrir_conexion();
-							$conexion = Conexion::obtener_conexion();
-							$perfil = new Perfil_Boundary($conexion, $nombre, $funciones);
-							$perfil->registrar();
+						Conexion::abrir_conexion();
+						$conexion = Conexion::obtener_conexion();
 
-							
-
-							Conexion::cerrar_conexion();
-						}
+						$usuario = new Usuario_Boundary($documento, $nombres, $apellidos, $celular, $email, $direccion, $perfil);
+						$usuario->registrar();
+						Conexion::cerrar_conexion();
 					}
 
 					/*array_push(que-array, valor);*/

@@ -86,9 +86,7 @@ h6{font-size: 14px !important;}
 .btn{
 	background-color: var(--color-primario) !important;
 	color: var(--color-secundario) !important;
-	border-style: solid;
 	border-radius: 20px;
-	border-color: var(--color-primario);
 	margin-top: 30px;
 	margin-bottom: 60px;
 	width: 47%;
@@ -96,6 +94,7 @@ h6{font-size: 14px !important;}
 	font-size: 20px !important;
 	vertical-align: middle !important;
 	padding: 0px !important;
+	border: 2px solid var(--color-primario);
 }
 .btn:hover{
 	background-color: var(--color-primario-hover) !important;
@@ -211,7 +210,8 @@ li.item-menu h2{
 
 .label{
 	padding-top: 15px;
-	display: block;
+	display: inline-block;
+	width: 200px;
 }
 
 .width-100{width: 100%;}
@@ -234,6 +234,28 @@ input{
 	-webkit-box-shadow: none !important;
 	box-shadow: none !important;
 	border-color: var(--color-primario) !important;
+}
+
+#input-perfil{
+	border-radius: 5px 0px 0px 5px !important;
+}
+
+#button-funciones{
+	display: inline-block;
+	width: 100px !important;
+	margin-bottom: 0px !important;
+	margin-top: 5px !important;
+	height: 35px !important;
+	padding: 0px !important;
+	font-size: 16px !important;
+	border-radius: 0px 5px 5px 0px !important;
+	border-width: 2px !important;
+	border-color: #252F3A !important;
+}
+
+.divv{
+	margin: 0px !important;
+	padding: 0px !important;
 }
 
 @media screen and (max-width: 1300px){
