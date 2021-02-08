@@ -427,6 +427,7 @@
 
 		<script language="JavaScript">
 			document.getElementById("item-perfiles").className = "active";
+			document.getElementById("a-usuarios").href = "../usuarios/registro-usuarios.php";
 		</script>
 
 		<!-- Javascript de boostrap -->
