@@ -29,9 +29,26 @@
 				<form method="POST" name="form-usuario">
 					<label class="font-24px label-title">Registro de usuario</label>
 
-					<label class="font-18px label-name">Nombre</label>
-					<input type="text" name="nombre" id="input-nombre" class="form-control">
+					<label class="font-18px label-document">Documento</label>
+					<input type="text" name="documento" class="form-control width-100">
 
+					<label class="font-18px label">Nombres</label>
+					<input type="text" name="nombres" class="form-control width-100">
+
+					<label class="font-18px label">Apellidos</label>
+					<input type="text" name="apellidos" class="form-control width-100">
+
+					<label class="font-18px label">Celular</label>
+					<input type="text" name="celular" class="form-control width-100">
+
+					<label class="font-18px label">Email</label>
+					<input type="text" name="email" class="form-control width-100">
+
+					<label class="font-18px label">Dirección</label>
+					<input type="text" name="direccion" class="form-control width-100">
+
+					<label class="font-18px label">perfil</label>
+					<input type="text" name="perfil" class="form-control width-100">
 
 					<!-- input submit iniciar sesión -->
 					<input type="submit" name="cancelar" id="input-cancelar" class="btn" value="Cancelar">

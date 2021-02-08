@@ -68,8 +68,6 @@ table {
 	--color-background-form: #FBFBFC;
 }
 
-
-
 /*  todos  ----------  */
 *{font-family: 'Roboto', sans-serif !important; font-style: normal !important; color: var(--color-primario) !important;}
 
@@ -84,7 +82,6 @@ h4{font-size: 18px !important;}
 h5{font-size: 16px !important;}
 h6{font-size: 14px !important;}
 
-
 /* botones */
 .btn{
 	background-color: var(--color-primario) !important;
@@ -93,13 +90,13 @@ h6{font-size: 14px !important;}
 	border-radius: 20px;
 	border-color: var(--color-primario);
 	margin-top: 30px;
-	width: 280px;
+	margin-bottom: 60px;
+	width: 47%;
 	height: 40px;
 	font-size: 20px !important;
 	vertical-align: middle !important;
 	padding: 0px !important;
 }
-
 .btn:hover{
 	background-color: var(--color-primario-hover) !important;
 	color: var(--color-secundario-hover) !important;
@@ -109,7 +106,7 @@ h6{font-size: 14px !important;}
 }
 
 #input-cancelar{
-	margin-right: 17px;
+	margin-right: 20px;
 }
 
 /*  estilos del menú  ----------  */
@@ -145,7 +142,6 @@ lu.items{
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 }
-
 lu.items li.item-menu{
 	display: inline-block;
 	padding: 0px;
@@ -153,29 +149,24 @@ lu.items li.item-menu{
 
 	vertical-align: middle;
 }
-
 lu.items li.item-menu h2:hover{
     font-weight: 500;
     text-align: center;
     cursor: pointer;
 }
-
 lu.items li.item-menu h2.active{
     font-weight: 500;
     text-align: center;
 }
-
 lu.items li.item-menu h2{
     font-weight: 300;
     text-align: center;
 }
-
 li.item-menu h2{
 	margin: 0px;
     width: 115px;
 	display: inline-block;
 }
-
 .btn-cuenta{
 	position: absolute;
 	right: 100px;
@@ -187,16 +178,14 @@ li.item-menu h2{
 	font-weight: 300;
 	text-align: left;
 }
-
 .btn-cuenta:hover{font-weight: 500;}
 
 
-
-/*  registro-perfiles.php  ----------  */
+/*  registro-usuario.php  ----------  */
 .div-content{top: 80px; right: 0px; left: 0px;}
 
 .div-registro-usuario{
-	height: 805px; width: 745px;
+	height: auto; width: 580px;
 
 	margin-top: 50px;
 	
@@ -215,12 +204,17 @@ li.item-menu h2{
 	display: block;
 }
 
-.label-name{
+.label-document{
 	padding-top: 20px;
 	display: block;
 }
 
-#input-nombre{width: 280px;}
+.label{
+	padding-top: 15px;
+	display: block;
+}
+
+.width-100{width: 100%;}
 
 input{
 	font-size: 16px;
@@ -234,119 +228,12 @@ input{
 
 
 /*  border de los inputs  ----------  */
-.form-control{
-	margin-top: 5px;
-}
+.form-control{margin-top: 5px;}
 
 .form-control:focus{
 	-webkit-box-shadow: none !important;
 	box-shadow: none !important;
 	border-color: var(--color-primario) !important;
-}
-
-/*  input submit iniciar sesión  */
-#input-sesion{
-	width: 100%;
-	margin-top: 20px !important;
-	padding: 0px;
-
-	font-size: 20px;
-	color: Var(--color-secundario);
-}
-
-p#recuperar{
-	width: 100%;
-	font-size: 16px;
-	text-align: center;
-	margin-top: 10px;
-}
-
-p#recuperar:hover{
-	text-decoration: underline;
-	cursor: pointer !important;
-}
-
-/*  logo de la empresa  ----------  */
-div.div-logo{text-align: center;}
-
-img.img-logo{
-	width: 150px !important;
-	margin-top: 20px !important;
-}
-
-
-
-
-.check-text input {
-	display: none !important;
-}
-
-.check-text input ~ svg {
-	cursor: pointer !important;
-}
-
-.check-text input ~ .checked {
-	display: none !important;
-}
-
-.check-text input:checked ~ .checked {
-	display: inline-block !important;
-}
-
-.check-text input:checked ~ .unchecked {
-	display: none !important;
-}
-
-.check-text input:disabled ~ svg {
-	cursor: not-allowed !important;
-}
-
-
-div.functions-perfiles{
-	width: 265px !important;
-	margin-top: 30px;
-	display: inline-block;
-	margin-right: 40px;
-}
-
-div.functions-usuarios{
-	width: 265px !important;
-	margin-top: 30px;
-	display: inline-block;
-	margin-right: 40px;
-}
-
-div.functions-productos{
-	width: 265px !important;
-	margin-top: 30px;
-	display: inline-block;
-	margin-right: 40px;
-}
-
-div.functions-compras{
-	width: 265px;
-	margin-top: 30px;
-	display: inline-block;
-	/*border: 1px solid #252F3A;*/
-}
-
-div.functions-pedidos{
-	width: 265px;
-	margin-top: 30px;
-	display: inline-block;
-	/*border: 1px solid #252F3A;*/
-}
-
-.label-function{
-	width: 220px;
-	/*border: 1px solid #252F3A;*/
-	vertical-align: middle;
-	height: 25px;
-	margin-left: 10px;
-}
-
-.label-margin-top{
-	margin-top: 15px;
 }
 
 @media screen and (max-width: 1300px){
@@ -388,34 +275,3 @@ div.functions-pedidos{
 		margin: 0px 10px;
 	}
 }
-
-/*@media screen and (max-height: 950px){
-	div.functions-perfiles{
-		width: 260px !important;
-		margin-top: 25px;
-		margin-right: 35px;
-	}
-	
-	div.functions-usuarios{
-		width: 260px !important;
-		margin-top: 25px;
-		margin-right: 35px;
-	}
-	
-	div.functions-productos{
-		width: 260px !important;
-		margin-top: 25px;
-		display: inline-block;
-		margin-right: 35px;
-	}
-
-	div.functions-compras{
-		width: 260px;
-		margin-top: 25px;
-	}
-	
-	div.functions-pedidos{
-		width: 260px;
-		margin-top: 25px;
-	}
-}*/
