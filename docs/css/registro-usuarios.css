@@ -7,7 +7,6 @@
 
 /*  Reseteo de cajas... anchura total = width  */
 *{box-sizing: border-box;}
-
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -21,49 +20,23 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+	margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline;
 }
-
 /*  HTML5 display-role reset for older browsers  */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-    list-style: none;
-    list-style-type: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display: block;}
+body {line-height: 1;}
+ol, ul {list-style: none; list-style-type: none;}
+blockquote, q {quotes: none;}
+blockquote:before, blockquote:after, q:before, q:after {content: ''; content: none;}
+table {border-collapse: collapse; border-spacing: 0;}
 
 /*  variables  ----------  */
 :root{
 	--color-primario: #252F3A;
 	--color-secundario: #FFFFFF;
-
 	--color-primario-hover: #FFFFFF;
 	--color-secundario-hover: #252F3A;
-
 	--color-navfooter: #D1D9E2;
-
 	--color-text-input: #3F5164;
 	--color-background-form: #FBFBFC;
 }
@@ -104,9 +77,7 @@ h6{font-size: 14px !important;}
 	border-color: var(--color-primario);
 }
 
-#input-cancelar{
-	margin-right: 20px;
-}
+#input-cancelar{margin-right: 20px;}
 
 /*  estilos del menú  ----------  */
 div.menu{
@@ -117,7 +88,6 @@ div.menu{
     right: 0px;
     display: flex;
     align-items: center;
-
 	background: var(--color-navfooter);
 }
 
@@ -126,7 +96,6 @@ img.logo{
     position: absolute;
     height: 70px;
     left: 100px;
-
     top: 50%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
@@ -136,7 +105,6 @@ img.logo{
 lu.items{
     position: absolute;
     left: 250px;
-
     top: 50%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
@@ -145,7 +113,6 @@ lu.items li.item-menu{
 	display: inline-block;
 	padding: 0px;
 	margin: 0px 15px;
-
 	vertical-align: middle;
 }
 lu.items li.item-menu h2:hover{
@@ -185,34 +152,17 @@ li.item-menu h2{
 
 .div-registro-usuario{
 	height: auto; width: 580px;
-
 	margin-top: 50px;
-	
 	padding-left: 80px; padding-right: 80px;
-
 	border: 2px solid var(--color-primario); border-radius: 5px;
-
 	background-color: var(--color-background-form);
-
 	/* alinea el contenedor en el centro*/
 	margin-left: auto; margin-right: auto;
 }
 
-.label-title{
-	padding-top: 40px;
-	display: block;
-}
-
-.label-document{
-	padding-top: 20px;
-	display: block;
-}
-
-.label{
-	padding-top: 15px;
-	display: inline-block;
-	width: 200px;
-}
+.label-title{padding-top: 40px; display: block;}
+.label-document{padding-top: 20px; display: block;}
+.label{padding-top: 15px; display: inline-block; width: 200px;}
 
 .width-100{width: 100%;}
 
@@ -237,9 +187,7 @@ select{padding-top: 4px !important;}
 	border-color: var(--color-primario) !important;
 }
 
-#input-perfil{
-	border-radius: 5px 0px 0px 5px !important;
-}
+#input-perfil{border-radius: 5px 0px 0px 5px !important;}
 
 #button-funciones{
 	display: inline-block;
@@ -254,11 +202,9 @@ select{padding-top: 4px !important;}
 	border-color: #252F3A !important;
 }
 
-.divv{
-	margin: 0px !important;
-	padding: 0px !important;
-}
+.divv{margin: 0px !important; padding: 0px !important;}
 
+/* diseño resposive -------------------- */
 @media screen and (max-width: 1300px){
 	img.logo{
 		left: 80px;
@@ -270,7 +216,6 @@ select{padding-top: 4px !important;}
 		left: 225px;
 	}
 }
-
 @media screen and (max-width: 1250px){
 	img.logo{
 		left: 70px;
@@ -282,7 +227,6 @@ select{padding-top: 4px !important;}
 		left: 200px;
 	}
 }
-
 @media screen and (max-width: 1175px){
 	img.logo{
 		left: 60px;
