@@ -2,7 +2,7 @@
 	class Usuario_Control{
 		public function __construct(){}
 
-		public function verificar($documento){return false;}
+		public function verificar($documento){}
 
 		public function registrar($conexion, $documento, $nombres, $apellidos, $celular, $email, $direccion, $perfil){
 			try {
@@ -20,6 +20,6 @@
 			}
 		}
 
-		public function actualizar($id, $datos){return false;}
+		public function actualizar($id, $datos){}
 	}
 ?>
