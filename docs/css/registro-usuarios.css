@@ -45,6 +45,7 @@ table {border-collapse: collapse; border-spacing: 0;}
 *{font-family: 'Roboto', sans-serif !important; font-style: normal !important; color: var(--color-primario) !important;}
 
 .font-24px{font-size: 24px !important;}
+.font-20px{font-size: 20px !important}
 .font-18px{font-size: 18px !important;}
 .font-16px{font-size: 16px !important;}
 
@@ -119,6 +120,7 @@ lu.items li.item-menu h2:hover{
     font-weight: 500;
     text-align: center;
     cursor: pointer;
+	transition: 0.5s;
 }
 lu.items li.item-menu h2.active{
     font-weight: 500;
@@ -143,12 +145,13 @@ li.item-menu h2{
 	font-size: 24px;
 	font-weight: 300;
 	text-align: left;
+	transition: 0.5s;
 }
 .btn-cuenta:hover{font-weight: 500;}
 
 
 /*  registro-usuario.php  ----------  */
-.div-content{top: 80px; right: 0px; left: 0px;}
+.div-content{top: 80px; right: 0px; left: 0px; padding: 0px 110px;}
 
 .div-registro-usuario{
 	height: auto; width: 580px;
@@ -203,6 +206,11 @@ select{padding-top: 4px !important;}
 }
 
 .divv{margin: 0px !important; padding: 0px !important;}
+
+.div-add-user{margin-top: 45px; padding: 0px; display: inline-block;}
+.p-add-user{display: inline; vertical-align: bottom; margin-left: 10px; transition: 1s; text-decoration-color: transparent;}
+.p-add-user:hover{text-decoration: underline; cursor: pointer; text-decoration-color: #252F3A;}
+svg{margin: 0px;}
 
 /* diseño resposive -------------------- */
 @media screen and (max-width: 1300px){

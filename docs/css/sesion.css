@@ -157,10 +157,13 @@ p#recuperar{
 	font-size: 16px;
 	text-align: center;
 	margin-top: 10px;
+	transition: 1s;
+	text-decoration-color: transparent;
 }
 
 p#recuperar:hover{
 	text-decoration: underline;
+	text-decoration-color: #252F3A;
 	cursor: pointer !important;
 }
 
