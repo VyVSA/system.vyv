@@ -206,39 +206,18 @@ select{padding-top: 4px !important;}
 
 /* diseño resposive -------------------- */
 @media screen and (max-width: 1300px){
-	img.logo{
-		left: 80px;
-	}
-	.btn-cuenta{
-		right: 80px;
-	}
-	lu.items{
-		left: 225px;
-	}
+	img.logo{left: 80px;}
+	.btn-cuenta{right: 80px;}
+	lu.items{left: 225px;}
 }
 @media screen and (max-width: 1250px){
-	img.logo{
-		left: 70px;
-	}
-	.btn-cuenta{
-		right: 70px;
-	}
-	lu.items{
-		left: 200px;
-	}
+	img.logo{left: 70px;}
+	.btn-cuenta{right: 70px;}
+	lu.items{left: 200px;}
 }
 @media screen and (max-width: 1175px){
-	img.logo{
-		left: 60px;
-	}
-	.btn-cuenta{
-		right: 60px;
-	}
-	lu.items{
-		left: 180px;
-	}
-
-	lu.items li.item-menu{
-		margin: 0px 10px;
-	}
+	img.logo{left: 60px;}
+	.btn-cuenta{right: 60px;}
+	lu.items{left: 180px;}
+	lu.items li.item-menu{margin: 0px 10px;}
 }
