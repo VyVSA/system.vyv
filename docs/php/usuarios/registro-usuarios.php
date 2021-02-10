@@ -8,7 +8,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 		<!-- estilos css personalizados -->
-		<link rel="stylesheet" type="text/css" href="../../css/registro-usuarios.css">
+		<link rel="stylesheet" type="text/css" href="../../css/registro-usuario.css">
 
 		<link rel="preconnect" href="https://fonts.gstatic.com">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap">
@@ -27,9 +27,35 @@
 					<path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
 					<path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
 				</svg>
-				<p class="p-add-user font-20px">Agregar nuevo usuario</p>
+				<p class="p-add-user font-18px">Agregar nuevo usuario</p>
 			</div>
-			
+
+			<table>
+				<thead>
+					<tr class="font-18px">
+						<th scope="col" class="th-id">ID</th>
+						<th scope="col" class="th-documento">Documento</th>
+						<th scope="col" class="th-nombres">Nombres</th>
+						<th scope="col" class="th-apellidos">Apellidos</th>
+						<th scope="col" class="th-celular">Celular</th>
+						<th scope="col" class="th-email">Email</th>
+						<th scope="col" class="th-direccion">Dirección</th>
+						<th scope="col" class="th-estado">Estado</th>
+						<th scope="col" class="th-perfil">Perfil</th>
+						<th scope="col" class="th-button"></th>
+						<th scope="col" class="th-button"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php
+					?>
+					<tr>
+						<td></td>
+					</tr>
+					<?php
+					?>
+				</tbody>
+			</table>
 
 			<?php /*
 			<div class="div-registro-usuario">
@@ -77,7 +103,7 @@
 							<option></option>
 							<?php foreach ($perfiles as $perfil) {?><option value="<?php echo $perfil[0]?>"><?php echo $perfil[1]?></option><?php }?>
 						</select>
-						<div class="input-group-prepend">
+						<div>
 							<button type="button" id="button-funciones" class="btn form-control" onclick="">Funciones</button>
 						</div>
 					</div>

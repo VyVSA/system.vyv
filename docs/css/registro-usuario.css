@@ -212,6 +212,30 @@ select{padding-top: 4px !important;}
 .p-add-user:hover{text-decoration: underline; cursor: pointer; text-decoration-color: #252F3A;}
 svg{margin: 0px;}
 
+thead{background-color: var(--color-primario);}
+
+th{
+	color: var(--color-secundario) !important;
+	text-align: center !important;
+	/*border: 1px solid #FFFFFF !important;*/
+	display: inline-block;
+	margin: 10px 0px;
+	padding: 0px !important;
+}
+
+table{width: 100%; margin-top: 30px;}
+
+.th-id{width: 40px;}
+.th-documento{min-width: 125px;}
+.th-nombres{min-width: 175px;}
+.th-apellidos{min-width: 175px;}
+.th-celular{min-width: 145px;}
+.th-email{min-width: 270px;}
+.th-direccion{min-width: 300px;}
+.th-estado{min-width: 120px;}
+.th-perfil{min-width: 230px;}
+.th-button{min-width: 60px;}
+
 /* diseño resposive -------------------- */
 @media screen and (max-width: 1300px){
 	img.logo{left: 80px;}
