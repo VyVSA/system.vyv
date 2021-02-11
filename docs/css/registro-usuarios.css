@@ -218,23 +218,22 @@ th{
 	color: var(--color-secundario) !important;
 	text-align: center !important;
 	/*border: 1px solid #FFFFFF !important;*/
-	display: inline-block;
 	margin: 10px 0px;
 	padding: 0px !important;
 }
 
 table{width: 100%; margin-top: 30px;}
 
-.th-id{width: 40px;}
-.th-documento{min-width: 125px;}
-.th-nombres{min-width: 175px;}
-.th-apellidos{min-width: 175px;}
-.th-celular{min-width: 145px;}
-.th-email{min-width: 270px;}
-.th-direccion{min-width: 300px;}
-.th-estado{min-width: 120px;}
-.th-perfil{min-width: 230px;}
-.th-button{min-width: 60px;}
+.th-id, .td-id{width: 40px;}
+.th-documento, .td-documento{min-width: 125px;}
+.th-nombres, .td-nombres{min-width: 175px;}
+.th-apellidos, .td-apellidos{min-width: 175px;}
+.th-celular, .td-celular{min-width: 145px;}
+.th-email, .td-email{min-width: 270px;}
+.th-direccion, .td-direccion{min-width: 300px;}
+.th-estado, .td-estado{min-width: 120px;}
+.th-perfil, .td-perfil{min-width: 230px;}
+.th-button, .td-button{min-width: 60px;}
 
 td{border: 1px solid #252F3A;}
 tr{border: 1px solid #252F3A;}

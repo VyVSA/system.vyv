@@ -1,5 +1,7 @@
 <?php
-	include '../../conexion.inc.php';
+
+	include_once '../conexion.inc.php';
+
 	class Lista_Usuarios{
 
 		private $usuarios;

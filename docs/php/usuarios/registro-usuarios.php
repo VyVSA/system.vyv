@@ -1,6 +1,7 @@
 <?php
 	include_once '../conexion.inc.php';
-	include_once 'crear-usuario/Usuario_Boundary.php';
+	include_once 'registrar/Usuario_Boundary.php';
+	include_once 'mantener/Usuarios_Boundary.php';
 ?>
 <html>
 	<head>
@@ -8,7 +9,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 		<!-- estilos css personalizados -->
-		<link rel="stylesheet" type="text/css" href="../../css/registro-usuario.css">
+		<link rel="stylesheet" type="text/css" href="../../css/registro-usuarios.css">
 
 		<link rel="preconnect" href="https://fonts.gstatic.com">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap">
@@ -30,7 +31,7 @@
 				<p class="p-add-user font-18px">Agregar nuevo usuario</p>
 			</div>
 
-			<table>
+			<table class="table">
 				<thead>
 					<tr class="font-18px">
 						<th scope="col" class="th-id">ID</th>
@@ -48,11 +49,25 @@
 				</thead>
 				<tbody>
 					<?php
+						$usuarios_boundary = new Usuarios_Boundary();
+						$usuarios = $usuarios_boundary->listar_usuarios();
+						foreach ($usuarios as $usuario) {
 					?>
 					<tr>
-						<td></td>
+						<td class="td-id"><?php echo $usuario[0] ?></td>
+						<td class="td-documento"><?php echo $usuario[1] ?></td>
+						<td class="td-nombres"><?php echo $usuario[2] ?></td>
+						<td class="td-apellidos"><?php echo $usuario[3] ?></td>
+						<td class="td-celular"><?php echo $usuario[4] ?></td>
+						<td class="td-email"><?php echo $usuario[5] ?></td>
+						<td class="td-direccion"><?php echo $usuario[6] ?></td>
+						<td class="td-estado"><?php echo $usuario[7] ?></td>
+						<td class="td-perfil"><?php echo $usuario[8] ?></td>
+						<td class="td-button"></td>
+						<td class="td-button"></td>
 					</tr>
 					<?php
+						}
 					?>
 				</tbody>
 			</table>
