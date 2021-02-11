@@ -1,103 +1,3 @@
-/*  reset css  ----------  */
-
-/*  http://meyerweb.com/eric/tools/css/reset/ 
-    v2.0 | 20110126
-    License: none (public domain)
-*/
-
-/*  Reseteo de cajas... anchura total = width  */
-*{box-sizing: border-box;}
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-
-/*  HTML5 display-role reset for older browsers  */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-    list-style: none;
-    list-style-type: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-
-/*  variables  ----------  */
-:root{
-	--color-primario: #252F3A;
-	--color-secundario: #FFFFFF;
-
-	--color-primario-hover: #FFFFFF;
-	--color-secundario-hover: #252F3A;
-
-	--color-navfooter: #D1D9E2;
-
-	--color-text-input: #3F5164;
-	--color-background-form: #FBFBFC;
-}
-
-
-
-/*  todos  ----------  */
-*{font-family: 'Roboto', sans-serif !important; font-style: normal !important; color: var(--color-primario) !important;}
-
-h1{font-size: 28px !important;}
-h2{font-size: 24px !important;}
-h3{font-size: 20px !important;}
-h4{font-size: 18px !important;}
-h5{font-size: 16px !important;}
-h6{font-size: 14px !important;}
-
-
-/* botones */
-.btn{
-	background-color: var(--color-primario) !important;
-	color: var(--color-secundario) !important;
-	border-style: solid;
-	border-radius: 20px;
-	border-color: var(--color-primario);
-}
-
-.btn:hover{
-	background-color: var(--color-primario-hover) !important;
-	color: var(--color-secundario-hover) !important;
-	border-style: solid;
-	border-radius: 4px;
-	border-color: var(--color-primario);
-}
-
 /*  estilos del menú  ----------  */
 div.menu{
     position: relative;
@@ -107,61 +7,50 @@ div.menu{
     right: 0px;
     display: flex;
     align-items: center;
-
 	background: var(--color-navfooter);
 }
-
 /*  logo de la empresa  ----------  */
 img.logo{
     position: absolute;
     height: 70px;
     left: 100px;
-
     top: 50%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 }
-
 /*  items del menú  ----------  */
 lu.items{
     position: absolute;
     left: 250px;
-
     top: 50%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 }
-
 lu.items li.item-menu{
 	display: inline-block;
 	padding: 0px;
 	margin: 0px 15px;
-
 	vertical-align: middle;
 }
-
 lu.items li.item-menu h2:hover{
     font-weight: 500;
     text-align: center;
     cursor: pointer;
+	transition: 0.5s;
 }
-
 lu.items li.item-menu h2.active{
     font-weight: 500;
     text-align: center;
 }
-
 lu.items li.item-menu h2{
     font-weight: 300;
     text-align: center;
 }
-
 li.item-menu h2{
 	margin: 0px;
     width: 115px;
 	display: inline-block;
 }
-
 .btn-cuenta{
 	position: absolute;
 	right: 100px;
@@ -172,6 +61,22 @@ li.item-menu h2{
 	font-size: 24px;
 	font-weight: 300;
 	text-align: left;
+	transition: 0.5s;
 }
-
 .btn-cuenta:hover{font-weight: 500;}
+@media screen and (max-width: 1300px){
+	img.logo{left: 80px;}
+	.btn-cuenta{right: 80px;}
+	lu.items{left: 225px;}
+}
+@media screen and (max-width: 1250px){
+	img.logo{left: 70px;}
+	.btn-cuenta{right: 70px;}
+	lu.items{left: 200px;}
+}
+@media screen and (max-width: 1175px){
+	img.logo{left: 60px;}
+	.btn-cuenta{right: 60px;}
+	lu.items{left: 180px;}
+	lu.items li.item-menu{margin: 0px 10px;}
+}

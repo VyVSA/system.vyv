@@ -9,7 +9,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 		<!-- estilos css personalizados -->
-		<link rel="stylesheet" type="text/css" href="../../css/registro-usuario.css">
+		<link rel="stylesheet" type="text/css" href="../../css/registro-usuarios.css">
+		<link rel="stylesheet" type="text/css" href="../../css/menu.css">
 
 		<link rel="preconnect" href="https://fonts.gstatic.com">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap">
@@ -24,16 +25,18 @@
 
 		<div class="div-content">
 			<div class="div-add-user">
-				<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-person-plus-fill" viewBox="0 0 16 16">
-					<path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-					<path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
-				</svg>
-				<p class="p-add-user font-18px">Agregar nuevo usuario</p>
+				<button class="button-modal" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+					<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-plus-fill" viewBox="0 0 16 16">
+						<path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+						<path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
+					</svg>
+					<p class="p-add-user font-18px">Agregar nuevo usuario</p>
+				</button>
 			</div>
 
 			<table>
 				<thead>
-					<tr class="font-18px">
+					<tr class="font-size-head">
 						<th scope="col" class="th-id">ID</th>
 						<th scope="col" class="th-documento">Documento</th>
 						<th scope="col" class="th-nombres">Nombres</th>
@@ -53,108 +56,121 @@
 						$usuarios = $usuarios_boundary->listar_usuarios();
 						foreach ($usuarios as $usuario) {
 					?>
-					<tr>
-						<td class="td-id"><?php echo $usuario[0] ?></td>
-						<td class="td-documento"><?php echo $usuario[1] ?></td>
-						<td class="td-nombres"><?php echo $usuario[2] ?></td>
-						<td class="td-apellidos"><?php echo $usuario[3] ?></td>
-						<td class="td-celular"><?php echo $usuario[4] ?></td>
-						<td class="td-email"><?php echo $usuario[5] ?></td>
-						<td class="td-direccion"><?php echo $usuario[6] ?></td>
-						<td class="td-estado"><?php echo $usuario[7] ?></td>
-						<td class="td-perfil"><?php echo $usuario[8] ?></td>
-						<td class="td-button"></td>
-						<td class="td-button"></td>
-					</tr>
-					<?php
-						}
-					?>
+							<tr class="font-size-body">
+								<td class="td-id"><?php echo $usuario[0] ?></td>
+								<td class="td-documento"><?php echo $usuario[1] ?></td>
+								<td class="td-nombres"><?php echo $usuario[2] ?></td>
+								<td class="td-apellidos"><?php echo $usuario[3] ?></td>
+								<td class="td-celular"><?php echo $usuario[4] ?></td>
+								<td class="td-email"><?php echo $usuario[5] ?></td>
+								<td class="td-direccion"><?php echo $usuario[6] ?></td>
+								<td class="td-estado"><?php echo $usuario[7] ?></td>
+								<td class="td-perfil"><?php echo $usuario[8] ?></td>
+								<td class="td-button">
+									
+										<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+											<path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+											<path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+										</svg>
+
+								</td>
+								<td class="td-button">
+									<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-person-x-fill" viewBox="0 0 16 16">
+										<path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6.146-2.854a.5.5 0 0 1 .708 0L14 6.293l1.146-1.147a.5.5 0 0 1 .708.708L14.707 7l1.147 1.146a.5.5 0 0 1-.708.708L14 7.707l-1.146 1.147a.5.5 0 0 1-.708-.708L13.293 7l-1.147-1.146a.5.5 0 0 1 0-.708z"/>
+									</svg>
+								</td>
+							</tr>
+					<?php }?>
 				</tbody>
 			</table>
+			
+			<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content div-registro-usuario">
+							<!-- formulario de registro de perfiles -->
+							<form method="POST" name="form-usuario">
+								<label class="font-24px label-title">Registro de usuario</label>
 
-			<?php /*
-			<div class="div-registro-usuario">
-				<!-- formulario de registro de perfiles -->
-				<form method="POST" name="form-usuario">
-					<label class="font-24px label-title">Registro de usuario</label>
+								<!-- input documento -->
+								<label class="font-18px label-document">Documento</label>
+								<input type="text" name="documento" class="form-control width-100">
 
-					<!-- input documento -->
-					<label class="font-18px label-document">Documento</label>
-					<input type="text" name="documento" class="form-control width-100">
+								<!-- input nombres -->
+								<label class="font-18px label">Nombres</label>
+								<input type="text" name="nombres" class="form-control width-100">
 
-					<!-- input nombres -->
-					<label class="font-18px label">Nombres</label>
-					<input type="text" name="nombres" class="form-control width-100">
+								<!-- input apellidos -->
+								<label class="font-18px label">Apellidos</label>
+								<input type="text" name="apellidos" class="form-control width-100">
 
-					<!-- input apellidos -->
-					<label class="font-18px label">Apellidos</label>
-					<input type="text" name="apellidos" class="form-control width-100">
+								<!-- input celular -->
+								<label class="font-18px label">Celular</label>
+								<input type="text" name="celular" class="form-control width-100">
 
-					<!-- input celular -->
-					<label class="font-18px label">Celular</label>
-					<input type="text" name="celular" class="form-control width-100">
+								<!-- input email -->
+								<label class="font-18px label">Email</label>
+								<input type="text" name="email" class="form-control width-100">
 
-					<!-- input email -->
-					<label class="font-18px label">Email</label>
-					<input type="text" name="email" class="form-control width-100">
+								<!-- input dirección -->
+								<label class="font-18px label">Dirección</label>
+								<input type="text" name="direccion" class="form-control width-100">
 
-					<!-- input dirección -->
-					<label class="font-18px label">Dirección</label>
-					<input type="text" name="direccion" class="form-control width-100">
+								<!-- Select perfil -->
+								<label class="font-18px label">perfil</label>
+								<div class="input-group divv">
+									<?php
+										$querySql = "SELECT * FROM perfil;";
+										Conexion::abrir_conexion();
+										$conexion = Conexion::obtener_conexion();
+										$sentencia = $conexion->prepare($querySql);
+										$sentencia->execute();
+										$perfiles = $sentencia->fetchAll();
+										Conexion::cerrar_conexion();
+									?>
+									<select name="perfil" id="input-perfil" class="form-control input-group">
+										<option></option>
+										<?php foreach ($perfiles as $perfil) {?><option value="<?php echo $perfil[0]?>"><?php echo $perfil[1]?></option><?php }?>
+									</select>
+									<div>
+										<button type="button" id="button-funciones" class="btn form-control" onclick="">Funciones</button>
+									</div>
+								</div>
 
-					<!-- Select perfil -->
-					<label class="font-18px label">perfil</label>
-					<div class="input-group divv">
-						<?php
-							$querySql = "SELECT * FROM perfil;";
-							Conexion::abrir_conexion();
-							$conexion = Conexion::obtener_conexion();
-							$sentencia = $conexion->prepare($querySql);
-							$sentencia->execute();
-							$perfiles = $sentencia->fetchAll();
-							Conexion::cerrar_conexion();
-						?>
-						<select name="perfil" id="input-perfil" class="form-control input-group">
-							<option></option>
-							<?php foreach ($perfiles as $perfil) {?><option value="<?php echo $perfil[0]?>"><?php echo $perfil[1]?></option><?php }?>
-						</select>
-						<div>
-							<button type="button" id="button-funciones" class="btn form-control" onclick="">Funciones</button>
-						</div>
+								<!-- inputs submit -->
+								<input type="submit" name="cancelar" id="input-cancelar" class="btn" value="Cancelar">
+								<input type="submit" name="registrar" id="input-registrar" class="btn" value="Registrar">
+							</form>
+							<!-- conexión a la base de datos y consulta a la misma para comprobar las credenciales -->
+							<?php
+								if (isset($_POST['registrar'])) {
+									$documento = $_POST['documento'];
+									$nombres = $_POST['nombres'];
+									$apellidos = $_POST['apellidos'];
+									$celular = $_POST['celular'];
+									$email = $_POST['email'];
+									$direccion = $_POST['direccion'];
+									$perfil = $_POST['perfil'];
+
+									Conexion::abrir_conexion();
+									$conexion = Conexion::obtener_conexion();
+									$usuario = new Usuario_Boundary($conexion, $documento, $nombres, $apellidos, $celular, $email, $direccion, $perfil);
+									$usuario->registrar();
+									Conexion::cerrar_conexion();
+								}
+							?>
 					</div>
-
-					<!-- inputs submit -->
-					<input type="submit" name="cancelar" id="input-cancelar" class="btn" value="Cancelar">
-					<input type="submit" name="registrar" id="input-registrar" class="btn" value="Registrar">
-				</form>
-				<!-- conexión a la base de datos y consulta a la misma para comprobar las credenciales -->
-				<?php
-					if (isset($_POST['registrar'])) {
-						$documento = $_POST['documento'];
-						$nombres = $_POST['nombres'];
-						$apellidos = $_POST['apellidos'];
-						$celular = $_POST['celular'];
-						$email = $_POST['email'];
-						$direccion = $_POST['direccion'];
-						$perfil = $_POST['perfil'];
-
-						Conexion::abrir_conexion();
-						$conexion = Conexion::obtener_conexion();
-						$usuario = new Usuario_Boundary($conexion, $documento, $nombres, $apellidos, $celular, $email, $direccion, $perfil);
-						$usuario->registrar();
-						Conexion::cerrar_conexion();
-					}
-				?>
+				</div>
 			</div>
-			*/?>
 		</div>
 
 		<!-- interacciones con javascript -->
 		<script language="JavaScript">
 			document.getElementById("item-usuarios").className = "active";
 			document.getElementById("a-perfiles").href = "../perfiles/registro-perfiles.php";
+			/*document.getElementById("a-productos").href = "../productos/registro-productos.php";*/
 		</script>
 		<!-- Javascript de boostrap -->
-		<src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></src=>
+		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
 	</body>
 </html>

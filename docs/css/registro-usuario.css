@@ -80,76 +80,6 @@ h6{font-size: 14px !important;}
 
 #input-cancelar{margin-right: 20px;}
 
-/*  estilos del menú  ----------  */
-div.menu{
-    position: relative;
-    height: 80px;
-    left: 0px;
-    top: 0px;
-    right: 0px;
-    display: flex;
-    align-items: center;
-	background: var(--color-navfooter);
-}
-
-/*  logo de la empresa  ----------  */
-img.logo{
-    position: absolute;
-    height: 70px;
-    left: 100px;
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-}
-
-/*  items del menú  ----------  */
-lu.items{
-    position: absolute;
-    left: 250px;
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-}
-lu.items li.item-menu{
-	display: inline-block;
-	padding: 0px;
-	margin: 0px 15px;
-	vertical-align: middle;
-}
-lu.items li.item-menu h2:hover{
-    font-weight: 500;
-    text-align: center;
-    cursor: pointer;
-	transition: 0.5s;
-}
-lu.items li.item-menu h2.active{
-    font-weight: 500;
-    text-align: center;
-}
-lu.items li.item-menu h2{
-    font-weight: 300;
-    text-align: center;
-}
-li.item-menu h2{
-	margin: 0px;
-    width: 115px;
-	display: inline-block;
-}
-.btn-cuenta{
-	position: absolute;
-	right: 100px;
-	background-color: #D1D9E2;
-	border-color: #D1D9E2;
-	border-style: none;
-	width: 135px;
-	font-size: 24px;
-	font-weight: 300;
-	text-align: left;
-	transition: 0.5s;
-}
-.btn-cuenta:hover{font-weight: 500;}
-
-
 /*  registro-usuario.php  ----------  */
 .div-content{top: 80px; right: 0px; left: 0px; padding: 0px 110px;}
 
@@ -213,15 +143,12 @@ select{padding-top: 4px !important;}
 svg{margin: 0px;}
 
 thead{background-color: var(--color-primario);}
-
 th{
 	color: var(--color-secundario) !important;
 	text-align: center !important;
 	padding: 8px 0px;
 }
-
-table{width: 100%; margin-top: 30px;}
-
+table{width: 100%; margin-top: 30px; font-size: 18px !important;}
 .th-id, .td-id{width: 40px !important;}
 .th-documento, .td-documento{min-width: 125px;}
 .th-nombres, .td-nombres{min-width: 175px;}
@@ -232,24 +159,10 @@ table{width: 100%; margin-top: 30px;}
 .th-estado, .td-estado{min-width: 120px;}
 .th-perfil, .td-perfil{min-width: 230px;}
 .th-button, .td-button{min-width: 60px;}
-
 td{border-bottom: 1px solid #252F3A !important; padding: 8px 0px 8px 6px;}
 tr{border: 1px solid #252F3A !important;}
 
-/* diseño resposive -------------------- */
-@media screen and (max-width: 1300px){
-	img.logo{left: 80px;}
-	.btn-cuenta{right: 80px;}
-	lu.items{left: 225px;}
-}
-@media screen and (max-width: 1250px){
-	img.logo{left: 70px;}
-	.btn-cuenta{right: 70px;}
-	lu.items{left: 200px;}
-}
-@media screen and (max-width: 1175px){
-	img.logo{left: 60px;}
-	.btn-cuenta{right: 60px;}
-	lu.items{left: 180px;}
-	lu.items li.item-menu{margin: 0px 10px;}
+/*  Diseño responsive --------------------  */
+@media screen and (max-width: 1980px){
+
 }
