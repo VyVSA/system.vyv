@@ -9,7 +9,7 @@
 			$lista_usuarios = new Lista_Usuarios();
 			$usuarios = $lista_usuarios->get_usuarios();
 			return $usuarios;
-		}
+		}	
 
 		public function baja($id){}
 
