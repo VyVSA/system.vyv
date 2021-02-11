@@ -9,7 +9,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 		<!-- estilos css personalizados -->
-		<link rel="stylesheet" type="text/css" href="../../css/registro-usuarios.css">
+		<link rel="stylesheet" type="text/css" href="../../css/registro-usuario.css">
 
 		<link rel="preconnect" href="https://fonts.gstatic.com">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap">
@@ -31,7 +31,7 @@
 				<p class="p-add-user font-18px">Agregar nuevo usuario</p>
 			</div>
 
-			<table class="table">
+			<table>
 				<thead>
 					<tr class="font-18px">
 						<th scope="col" class="th-id">ID</th>
