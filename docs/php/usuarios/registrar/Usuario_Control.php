@@ -3,26 +3,30 @@
 		public function __construct(){}
 
 		public function verificar($conexion, $documento){
-			$resultado;
-
 			try {
 				$querySql="	SELECT
 								documento
 							FROM
 								usuario
 							WHERE
-								usuario.documento = '$documento';";
+								usuario.documento='$documento'";
+
 				$sentencia = $conexion->prepare($querySql);
 				$sentencia->execute();
 				$resultado = $sentencia->fetchAll();
+				
+				$doc_usuario;
+				foreach ($resultado as $usuario) {
+					$doc_usuario = $usuario['documento'];
+				}
 			} catch (Exception $e) {
 				print "ERROR: ".$e->getMessage();
 			}
 
-			if (isset($resultado)) {
-				return true;
-			}else {
+			if ($doc_usuario == '') {
 				return false;
+			} else {
+				return true;
 			}
 		}
 
