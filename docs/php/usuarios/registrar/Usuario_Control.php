@@ -18,22 +18,15 @@
 				foreach ($resultado as $usuario) {
 					$doc_usuario = $usuario['documento'];
 				}
-
-				echo $doc_usuario;
-				if (is_array($doc_usuario)) {
-					print_r($doc_usuario);
-				} else {
-					echo $doc_usuario;
-				}
 			} catch (Exception $e) {
 				print "ERROR: ".$e->getMessage();
 			}
 
-			/*if ($doc_usuario == '') {
+			if ($doc_usuario == '' || is_null($doc_usuario)) {
 				return false;
 			} else {
 				return true;
-			}*/
+			}
 		}
 
 		public function registrar($conexion, $documento, $nombres, $apellidos, $celular, $email, $direccion, $perfil){

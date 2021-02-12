@@ -20,13 +20,13 @@
 
 		public function registrar(){
 			$usuarioControl = new Usuario_Control();
-			$usuarioControl->verificar($this->conexion, $this->documento);
-			/*if (!$existe) {
+			$existe = $usuarioControl->verificar($this->conexion, $this->documento);
+			if (!$existe) {
 				$usuarioControl->registrar($this->conexion, $this->documento, $this->nombres, $this->apellidos, $this->celular, $this->email, $this->direccion, $this->perfil);
 				return true;
 			} else {
 				return false;
-			}*/
+			}
 		}
 
 		public function actualizar($id, $documento, $nombres, $apellidos, $celular, $email, $direccion){

@@ -92,8 +92,8 @@
 							<label class="font-24px label-title">Registro de usuario</label>
 
 							<!-- input documento -->
-							<label class="font-18px label-document">Documento</label>
-							<input type="text" name="documento" class="form-control width-100">
+							<label class="font-18px label-document">Documento<span id="span-documento" class=""> * </span></label>
+							<input type="text" name="documento" class="form-control width-100" onfocusout="spanDocumentoOut()" onfocusin="spanDocumentoIn()">
 
 							<!-- input nombres -->
 							<label class="font-18px label">Nombres</label>
@@ -154,15 +154,17 @@
 													Conexion::abrir_conexion();
 													$conexion = Conexion::obtener_conexion();			
 													$usuario = new Usuario_Boundary($conexion, $documento, $nombres, $apellidos, $celular, $email, $direccion, $perfil);
-													$usuario->registrar();
+													$var = $usuario->registrar();
 
-													/*if ($var) {
+													if ($var) {
 														echo 'funciona';
 													} else {
-														echo 'no funciona';
+														echo	'<script type="text/javascript">
+																	alert("No se puede registrar.");
+																</script>';
 													}
 
-													Conexion::cerrar_conexion();*/
+													Conexion::cerrar_conexion();
 												}
 											}
 										}
@@ -180,6 +182,18 @@
 			document.getElementById("item-usuarios").className = "active";
 			document.getElementById("a-perfiles").href = "../perfiles/registro-perfiles.php";
 			/*document.getElementById("a-productos").href = "../productos/registro-productos.php";*/
+
+			function spanDocumentoOut(){
+				alert("funciona out");
+				var documento = document.getElementById("span-documento");
+				documento.className="span-red";
+			}
+
+			function spanDocumentoIn(){
+				alert("funciona in");
+				var documento = document.getElementById("span-documento");
+				documento.className="";
+			}
 
 			/*borrar(){
 				form-usuario.documento.value='';
