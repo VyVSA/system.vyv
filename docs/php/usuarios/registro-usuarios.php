@@ -137,25 +137,32 @@
 								</div>
 
 								<!-- inputs submit -->
-								<input type="submit" name="cancelar" id="input-cancelar" class="btn" value="Cancelar">
-								<input type="submit" name="registrar" id="input-registrar" class="btn" value="Registrar">
+								<input type="submit" name="cancelar" id="input-cancelar" class="btn" value="Cancelar" onclick="cancelar()">
+								<input type="submit" name="registrar" id="input-registrar" class="btn" value="Registrar" onclick="cancelar()">
 							</form>
 							<!-- conexión a la base de datos y consulta a la misma para comprobar las credenciales -->
 							<?php
 								if (isset($_POST['registrar'])) {
-									$documento = $_POST['documento'];
-									$nombres = $_POST['nombres'];
-									$apellidos = $_POST['apellidos'];
-									$celular = $_POST['celular'];
-									$email = $_POST['email'];
-									$direccion = $_POST['direccion'];
-									$perfil = $_POST['perfil'];
+									if (isset($_POST['documento'], $_POST['nombres'], $_POST['apellidos'], $_POST['email'], $_POST['perfil'])) {
+										$documento = $_POST['documento'];
+										$nombres = $_POST['nombres'];
+										$apellidos = $_POST['apellidos'];
+										$celular = $_POST['celular'];
+										$email = $_POST['email'];
+										$direccion = $_POST['direccion'];
+										$perfil = $_POST['perfil'];
 
-									Conexion::abrir_conexion();
-									$conexion = Conexion::obtener_conexion();
-									$usuario = new Usuario_Boundary($conexion, $documento, $nombres, $apellidos, $celular, $email, $direccion, $perfil);
-									$usuario->registrar();
-									Conexion::cerrar_conexion();
+										Conexion::abrir_conexion();
+										$conexion = Conexion::obtener_conexion();
+										$usuario = new Usuario_Boundary($conexion, $documento, $nombres, $apellidos, $celular, $email, $direccion, $perfil);
+										$var = $usuario->registrar();
+										Conexion::cerrar_conexion();
+
+										echo	'<script type="text/javascript">'
+											, 		'location.reload();'
+											, 	'</script>'
+										;
+									}
 								}
 							?>
 					</div>
@@ -168,6 +175,16 @@
 			document.getElementById("item-usuarios").className = "active";
 			document.getElementById("a-perfiles").href = "../perfiles/registro-perfiles.php";
 			/*document.getElementById("a-productos").href = "../productos/registro-productos.php";*/
+
+			borrar(){
+				form-usuario.documento.value='';
+				form-usuario.nombres.value='';
+				form-usuario.apellidos.value='';
+				form-usuario.celular.value='';
+				form-usuario.email.value='';
+				form-usuario.direccion='';
+				form-usuario.perfil='';
+      		}
 		</script>
 		<!-- Javascript de boostrap -->
 		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
