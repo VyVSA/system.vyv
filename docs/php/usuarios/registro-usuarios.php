@@ -152,17 +152,17 @@
 													$direccion = $_POST['direccion'];
 
 													Conexion::abrir_conexion();
-													$conexion = Conexion::obtener_conexion();
+													$conexion = Conexion::obtener_conexion();			
 													$usuario = new Usuario_Boundary($conexion, $documento, $nombres, $apellidos, $celular, $email, $direccion, $perfil);
+													$usuario->registrar();
 
-													$var = $usuario->registrar();
-													if ($var) {
+													/*if ($var) {
 														echo 'funciona';
 													} else {
 														echo 'no funciona';
 													}
 
-													Conexion::cerrar_conexion();
+													Conexion::cerrar_conexion();*/
 												}
 											}
 										}
