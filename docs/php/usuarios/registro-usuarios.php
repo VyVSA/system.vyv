@@ -9,7 +9,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 		<!-- estilos css personalizados -->
-		<link rel="stylesheet" type="text/css" href="../../css/registro-usuarios.css">
+		<link rel="stylesheet" type="text/css" href="../../css/registro-usuario.css">
 		<link rel="stylesheet" type="text/css" href="../../css/menu.css">
 
 		<link rel="preconnect" href="https://fonts.gstatic.com">
@@ -92,31 +92,31 @@
 							<label class="font-24px label-title">Registro de usuario</label>
 
 							<!-- input documento -->
-							<label class="font-18px label-document">Documento<span id="span-documento" class=""> * </span></label>
-							<input type="text" name="documento" class="form-control width-100" onfocusout="spanDocumentoOut()" onfocusin="spanDocumentoIn()">
+							<label class="font-18px label-document">Documento<span id="spanDocumento" class=""> * </span></label>
+							<input 	type="text" name="documento" id="documento" class="form-control width-100" onfocusout="spanDocumentoOut()"onfocusin="spanDocumentoIn()" oninput="validarCampos()">
 
 							<!-- input nombres -->
-							<label class="font-18px label">Nombres</label>
-							<input type="text" name="nombres" class="form-control width-100">
+							<label class="font-18px label">Nombres<span id="spanNombres" class=""> * </span></label>	
+							<input type="text" name="nombres" id="nombres" class="form-control width-100" onfocusout="spanNombresOut()" onfocusin="spanNombresIn()" oninput="validarCampos()">
 
 							<!-- input apellidos -->
-							<label class="font-18px label">Apellidos</label>
-							<input type="text" name="apellidos" class="form-control width-100">
+							<label class="font-18px label">Apellidos<span id="spanApellidos" class=""> * </span></label>
+							<input type="text" name="apellidos" id="apellidos" class="form-control width-100" onfocusout="spanApellidosOut()" onfocusin="spanApellidosIn()" oninput="validarCampos()">
 
 							<!-- input celular -->
 							<label class="font-18px label">Celular</label>
-							<input type="text" name="celular" class="form-control width-100">
+							<input type="text" name="celular" id="celular" class="form-control width-100">
 
 							<!-- input email -->
-							<label class="font-18px label">Email</label>
-							<input type="text" name="email" class="form-control width-100">
+							<label class="font-18px label">Email<span id="spanEmail" class=""> * </span></label>
+							<input type="text" name="email" id="email" class="form-control width-100" onfocusout="spanEmailOut()" onfocusin="spanEmailIn()" oninput="validarCampos()">
 
 							<!-- input dirección -->
 							<label class="font-18px label">Dirección</label>
-							<input type="text" name="direccion" class="form-control width-100">
+							<input type="text" name="direccion" id="direccion" class="form-control width-100">
 
 							<!-- Select perfil -->
-							<label class="font-18px label">perfil</label>
+							<label class="font-18px label">Perfil<span id="spanPerfil" class=""> * </span></label>
 							<div class="input-group divv">
 								<?php
 									$querySql = "SELECT * FROM perfil;";
@@ -127,7 +127,7 @@
 									$perfiles = $sentencia->fetchAll();
 									Conexion::cerrar_conexion();
 								?>
-								<select name="perfil" id="input-perfil" class="form-control input-group">
+								<select name="perfil" id="perfil" class="form-control input-group input-perfil">
 									<option></option>
 									<?php foreach ($perfiles as $perfil) {?><option value="<?php echo $perfil[0]?>"><?php echo $perfil[1]?></option><?php }?>
 								</select>
@@ -179,20 +179,72 @@
 
 		<!-- interacciones con javascript -->
 		<script language="JavaScript">
+
 			document.getElementById("item-usuarios").className = "active";
 			document.getElementById("a-perfiles").href = "../perfiles/registro-perfiles.php";
+			document.getElementById("input-registrar").disabled = true;
+			document.getElementById("button-funciones").disabled = true;
 			/*document.getElementById("a-productos").href = "../productos/registro-productos.php";*/
 
+			/* cambio de color por campos requeridos incompletos */
+			/* input documento */
+			function spanDocumentoIn(){
+				document.getElementById("spanDocumento").className = "";
+				document.getElementById("documento").className =document.getElementById("documento").className.replace( /(?:^|\s)input-red(?!\S)/g , '' );
+			}
 			function spanDocumentoOut(){
-				alert("funciona out");
-				var documento = document.getElementById("span-documento");
-				documento.className="span-red";
+				document.getElementById("documento").value = document.getElementById("documento").value.trim();
+				if (document.getElementById("documento").value == "") {
+					document.getElementById("spanDocumento").className = "span-red";
+					document.getElementById("documento").className += " input-red";
+				}
 			}
 
-			function spanDocumentoIn(){
-				alert("funciona in");
-				var documento = document.getElementById("span-documento");
-				documento.className="";
+			/* input nombres */
+			function spanNombresIn(){
+				document.getElementById("spanNombres").className = "";
+				document.getElementById("nombres").className =document.getElementById("nombres").className.replace( /(?:^|\s)input-red(?!\S)/g , '' );
+			}
+			function spanNombresOut(){
+				document.getElementById("nombres").value = document.getElementById("nombres").value.trim();
+				if (document.getElementById("nombres").value == "") {
+					document.getElementById("spanNombres").className = "span-red";
+					document.getElementById("nombres").className += " input-red";
+				}
+			}
+
+			/* input apellidos */
+			function spanApellidosIn(){
+				document.getElementById("spanApellidos").className = "";
+				document.getElementById("apellidos").className =document.getElementById("apellidos").className.replace( /(?:^|\s)input-red(?!\S)/g , '' );
+			}
+			function spanApellidosOut(){
+				document.getElementById("apellidos").value = document.getElementById("apellidos").value.trim();
+				if (document.getElementById("apellidos").value == "") {
+					document.getElementById("spanApellidos").className = "span-red";
+					document.getElementById("apellidos").className += " input-red";
+				}
+			}
+
+			/* input email */
+			function spanEmailIn(){
+				document.getElementById("spanEmail").className = "";
+				document.getElementById("email").className =document.getElementById("email").className.replace( /(?:^|\s)input-red(?!\S)/g , '' );
+			}
+			function spanEmailOut(){
+				document.getElementById("email").value = document.getElementById("email").value.trim();
+				if (document.getElementById("email").value == "") {
+					document.getElementById("spanEmail").className = "span-red";
+					document.getElementById("email").className += " input-red";
+				}
+			}
+
+			function validarCampos(){
+				if ((isNaN(document.getElementById("documento").value) == false) && (document.getElementById("documento").value != "") && (document.getElementById("nombres").value != "") && (document.getElementById("apellidos").value != "") && (document.getElementById("email").value != "")){
+					document.getElementById("input-registrar").disabled = false;
+				} else {
+					document.getElementById("input-registrar").disabled = true;
+				}
 			}
 
 			/*borrar(){

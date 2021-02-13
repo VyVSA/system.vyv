@@ -120,7 +120,7 @@ select{padding-top: 4px !important;}
 	border-color: var(--color-primario) !important;
 }
 
-#input-perfil{border-radius: 5px 0px 0px 5px !important;}
+.input-perfil{border-radius: 5px 0px 0px 5px !important;}
 
 #button-funciones{
 	display: inline-block;
@@ -170,7 +170,13 @@ tr{border: 1px solid #252F3A !important;}
 
 .button-modal{background-color: transparent; margin: 0px; padding: 0px; border: 0px none transparent;}
 
-.span-red{color: red;}
+.span-red{
+	color: red !important;
+}
+
+.input-red{
+	border-color: red !important;
+}
 
 /*  Diseño responsive --------------------  */
 @media screen and (max-width: 1980px){
