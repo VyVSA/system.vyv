@@ -9,7 +9,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 		<!-- estilos css personalizados -->
-		<link rel="stylesheet" type="text/css" href="../../css/registro-usuario.css">
+		<link rel="stylesheet" type="text/css" href="../../css/registro-usuarios.css">
 		<link rel="stylesheet" type="text/css" href="../../css/menu.css">
 
 		<link rel="preconnect" href="https://fonts.gstatic.com">
@@ -84,12 +84,16 @@
 				</tbody>
 			</table>
 			
+		<!-- modal de registro de usuarios -->
+
 			<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 				<div class="modal-dialog">
 					<div class="modal-content div-registro-usuario">
 						<!-- formulario de registro de perfiles -->
 						<form method="POST" name="form-usuario">
 							<label class="font-24px label-title">Registro de usuario</label>
+
+							<p class="font-14px p-campo-obligatorio">* Campo obligatorio</p>
 
 							<!-- input documento -->
 							<label class="font-18px label-document">Documento<span id="spanDocumento" class=""> * </span></label>
@@ -108,8 +112,8 @@
 							<input type="text" name="celular" id="celular" class="form-control width-100">
 
 							<!-- input email -->
-							<label class="font-18px label">Email<span id="spanEmail" class=""> * </span></label>
-							<input type="text" name="email" id="email" class="form-control width-100" onfocusout="spanEmailOut()" onfocusin="spanEmailIn()" oninput="validarCampos()">
+							<label class="font-18px label">Correo electrónico<span id="spanEmail" class=""> * </span></label><p class="font-14px p-correo">Aquí se enviará la contraseña del usuario</p>
+							<input type="text" name="email" id="email" class="form-control width-100 input-text-email" onfocusout="spanEmailOut()" onfocusin="spanEmailIn()" oninput="validarCampos()">
 
 							<!-- input dirección -->
 							<label class="font-18px label">Dirección</label>
@@ -137,8 +141,9 @@
 							</div>
 
 							<!-- inputs submit -->
-							<input type="submit" name="cancelar" id="input-cancelar" class="btn" value="Cancelar">
-							<input type="submit" name="registrar" id="input-registrar" class="btn" value="Registrar">
+							<button type="button" id="button-cancelar" class="btn" data-bs-dismiss="">Cancelar</button>
+							<input type="submit" id="input-registrar" class="btn" name="registrar" value="Registrar">
+							
 						</form>
 						<!-- conexión a la base de datos y consulta a la misma para comprobar las credenciales -->
 						<?php
@@ -171,6 +176,14 @@
 									}
 								}
 							}
+
+							/*if (isset($_POST['cancelar'])) {
+								?>
+									<script>
+										var opcion = confirm("¿Está seguro de cancelar?\nSe perderán los datos ya ingresados.");
+									</script>
+								<?php
+							}*/
 						?>
 					</div>
 				</div>
@@ -189,54 +202,40 @@
 			/* cambio de color por campos requeridos incompletos */
 			/* input documento */
 			function spanDocumentoIn(){
-				document.getElementById("spanDocumento").className = "";
 				document.getElementById("documento").className =document.getElementById("documento").className.replace( /(?:^|\s)input-red(?!\S)/g , '' );
 			}
 			function spanDocumentoOut(){
 				document.getElementById("documento").value = document.getElementById("documento").value.trim();
-				if (document.getElementById("documento").value == "") {
-					document.getElementById("spanDocumento").className = "span-red";
+				if ((document.getElementById("documento").value == "") || (isNaN(document.getElementById("documento").value) == true)) {
 					document.getElementById("documento").className += " input-red";
 				}
 			}
 
 			/* input nombres */
 			function spanNombresIn(){
-				document.getElementById("spanNombres").className = "";
 				document.getElementById("nombres").className =document.getElementById("nombres").className.replace( /(?:^|\s)input-red(?!\S)/g , '' );
 			}
 			function spanNombresOut(){
 				document.getElementById("nombres").value = document.getElementById("nombres").value.trim();
-				if (document.getElementById("nombres").value == "") {
-					document.getElementById("spanNombres").className = "span-red";
-					document.getElementById("nombres").className += " input-red";
-				}
+				if (document.getElementById("nombres").value == "") {document.getElementById("nombres").className += " input-red";}
 			}
 
 			/* input apellidos */
 			function spanApellidosIn(){
-				document.getElementById("spanApellidos").className = "";
 				document.getElementById("apellidos").className =document.getElementById("apellidos").className.replace( /(?:^|\s)input-red(?!\S)/g , '' );
 			}
 			function spanApellidosOut(){
 				document.getElementById("apellidos").value = document.getElementById("apellidos").value.trim();
-				if (document.getElementById("apellidos").value == "") {
-					document.getElementById("spanApellidos").className = "span-red";
-					document.getElementById("apellidos").className += " input-red";
-				}
+				if (document.getElementById("apellidos").value == "") {document.getElementById("apellidos").className += " input-red";}
 			}
 
 			/* input email */
 			function spanEmailIn(){
-				document.getElementById("spanEmail").className = "";
 				document.getElementById("email").className =document.getElementById("email").className.replace( /(?:^|\s)input-red(?!\S)/g , '' );
 			}
 			function spanEmailOut(){
 				document.getElementById("email").value = document.getElementById("email").value.trim();
-				if (document.getElementById("email").value == "") {
-					document.getElementById("spanEmail").className = "span-red";
-					document.getElementById("email").className += " input-red";
-				}
+				if (document.getElementById("email").value == "") {document.getElementById("email").className += " input-red";}
 			}
 
 			function validarCampos(){
@@ -246,6 +245,8 @@
 					document.getElementById("input-registrar").disabled = true;
 				}
 			}
+
+			
 
 			/*borrar(){
 				form-usuario.documento.value='';
