@@ -1,15 +1,16 @@
 <?php
 	include_once '../conexion.inc.php';
-	include_once 'registrar/Usuario_Boundary.php';
-	include_once 'mantener/Usuarios_Boundary.php';
+    include_once 'listar-productos/Productos_Boundary.php';
+	include_once 'registrar-productos/Producto_Boundary.php';
 ?>
+
 <html>
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 		<!-- estilos css personalizados -->
-		<link rel="stylesheet" type="text/css" href="../../css/registro-usuario.css">
+		<link rel="stylesheet" type="text/css" href="../../css/registro-compra.css">
 		<link rel="stylesheet" type="text/css" href="../../css/menu.css">
 
 		<link rel="preconnect" href="https://fonts.gstatic.com">
@@ -17,20 +18,21 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap">
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-		<title>V&V S.A. - Registro de usuario</title>
+		<title>V&V S.A. - Listado de productos</title>
 	</head>
 	<body>
 		<!-- inclusión del menú en la cabacera de la página -->
 		<?php include '../../menu-head.php' ?>
 
 		<div class="div-content">
-			<div class="div-add-user">
+			<div class="div-add-product">
 				<button class="button-modal" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-					<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-plus-fill" viewBox="0 0 16 16">
-						<path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-						<path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
-					</svg>
-					<p class="p-add-user font-18px">Agregar nuevo usuario</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-clipboard-plus" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z"/>
+                        <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+                        <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+                    </svg>
+					<p class="p-add-product font-18px">Agregar nuevo producto</p>
 				</button>
 			</div>
 
@@ -38,23 +40,22 @@
 				<thead>
 					<tr class="font-size-head">
 						<th scope="col" class="th-id">ID</th>
-						<th scope="col" class="th-documento">Documento</th>
-						<th scope="col" class="th-nombres">Nombres</th>
-						<th scope="col" class="th-apellidos">Apellidos</th>
-						<th scope="col" class="th-celular">Celular</th>
-						<th scope="col" class="th-email">Email</th>
-						<th scope="col" class="th-direccion">Dirección</th>
-						<th scope="col" class="th-estado">Estado</th>
-						<th scope="col" class="th-perfil">Perfil</th>
-						<th scope="col" class="th-button"></th>
+						<th scope="col" class="th-descripcion">Descripción</th>
+						<th scope="col" class="th-modelo">Modelo</th>
+						<th scope="col" class="th-marca">Marca</th>
+						<th scope="col" class="th-lote">Lote</th>
+						<th scope="col" class="th-procedencia">Procedencia</th>
+						<th scope="col" class="th-stock">Stock</th>
+						<th scope="col" class="th-precio-compra">Precio compra</th>
+						<th scope="col" class="th-precio-venta">Precio venta</th>
 						<th scope="col" class="th-button"></th>
 					</tr>
 				</thead>
 				<tbody>
 					<?php
-						$usuarios_boundary = new Usuarios_Boundary();
-						$usuarios = $usuarios_boundary->listar_usuarios();
-						foreach ($usuarios as $usuario) {
+					    $productos_boundary = new Productos_Boundary();
+                        $productos = $productos_boundary->listar_productos();
+						/*foreach ($usuarios as $usuario) {
 					?>
 							<tr class="font-size-body">
 								<td class="td-id"><?php echo $usuario[0] ?></td>
@@ -80,7 +81,7 @@
 									</svg>
 								</td>
 							</tr>
-					<?php }?>
+					<?php } */?>
 				</tbody>
 			</table>
 			

@@ -1,0 +1,652 @@
+/*  reset css  ----------  */
+
+/*  http://meyerweb.com/eric/tools/css/reset/ 
+    v2.0 | 20110126
+    License: none (public domain)
+*/
+
+/*  Reseteo de cajas... anchura total = width  */
+* {
+  box-sizing: border-box;
+}
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/*  HTML5 display-role reset for older browsers  */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+  list-style-type: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/*  variables  ----------  */
+:root {
+  --color-primario: #252f3a;
+  --color-secundario: #ffffff;
+  --color-primario-hover: #ffffff;
+  --color-secundario-hover: #252f3a;
+  --color-navfooter: #d1d9e2;
+  --color-text-input: #3f5164;
+  --color-background-form: #fbfbfc;
+}
+
+/*  todos  ----------  */
+* {
+  font-family: "Roboto", sans-serif !important;
+  font-style: normal !important;
+  color: var(--color-primario) !important;
+}
+
+.font-24px {
+  font-size: 24px !important;
+}
+.font-20px {
+  font-size: 20px !important;
+}
+.font-18px {
+  font-size: 18px !important;
+}
+.font-16px {
+  font-size: 16px !important;
+}
+.font-14px {
+  font-size: 14px !important;
+}
+.font-12px {
+  font-size: 12px !important;
+}
+
+h1 {
+  font-size: 28px !important;
+}
+h2 {
+  font-size: 24px !important;
+}
+h3 {
+  font-size: 20px !important;
+}
+h4 {
+  font-size: 18px !important;
+}
+h5 {
+  font-size: 16px !important;
+}
+h6 {
+  font-size: 14px !important;
+}
+
+/* botones */
+.btn {
+  background-color: var(--color-primario) !important;
+  color: var(--color-secundario) !important;
+  border-radius: 20px;
+  margin-top: 30px;
+  margin-bottom: 60px;
+  width: 47%;
+  height: 40px;
+  font-size: 20px !important;
+  vertical-align: middle !important;
+  padding: 0px !important;
+  border: 2px solid var(--color-primario);
+  border-width: 2px !important;
+}
+.btn:hover {
+  background-color: var(--color-primario-hover) !important;
+  color: var(--color-secundario-hover) !important;
+  border-style: solid;
+  border-radius: 4px;
+  border-color: var(--color-primario);
+}
+
+.btn:active,
+.btn:focus,
+.btn:active {
+  background-image: none !important;
+  outline: 0 !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+#button-cancelar {
+  margin-right: 20px;
+  border-width: 2px !important;
+}
+
+/*  registro-usuario.php  ----------  */
+.div-content {
+  top: 80px;
+  right: 0px;
+  left: 0px;
+  padding: 0px 110px;
+}
+
+.div-registro-usuario {
+  height: auto !important;
+  width: 580px !important;
+  margin-top: 50px !important;
+  padding-left: 80px !important;
+  padding-right: 80px !important;
+  border: 2px solid var(--color-primario) !important;
+  border-radius: 5px !important;
+  background-color: var(--color-background-form) !important;
+  /* alinea el contenedor en el centro*/
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.label-title {
+  padding-top: 40px;
+  display: block;
+}
+.label-document {
+  padding-top: 5px;
+  display: block;
+}
+.label {
+  padding-top: 15px;
+  display: inline-block;
+  width: 200px;
+}
+
+.width-100 {
+  width: 100%;
+}
+
+input,
+select,
+button {
+  font-size: 16px !important;
+  height: 35px;
+  padding-top: 10px;
+  background-color: var(--color-secundario);
+  border-color: var(--color-primario);
+  border-width: 2px !important;
+  border-radius: 5px !important;
+}
+
+select {
+  padding-top: 4px !important;
+}
+
+/*  border de los inputs  ----------  */
+.form-control {
+  margin-top: 5px;
+}
+
+.form-control:focus {
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  border-color: var(--color-primario) !important;
+}
+
+.input-perfil {
+  border-radius: 5px 0px 0px 5px !important;
+}
+
+#button-funciones {
+  display: inline-block;
+  width: 100px !important;
+  margin-bottom: 0px !important;
+  margin-top: 5px !important;
+  height: 35px !important;
+  padding: 0px !important;
+  font-size: 16px !important;
+  border-radius: 0px 5px 5px 0px !important;
+  border-width: 2px !important;
+  border-color: #252f3a !important;
+}
+
+.divv {
+  margin: 0px !important;
+  padding: 0px !important;
+}
+
+.div-add-product {
+  margin-top: 45px;
+  padding: 0px;
+  display: inline-block;
+}
+.p-add-product {
+  display: inline;
+  vertical-align: bottom;
+  margin-left: 10px;
+  transition: 1s;
+  text-decoration-color: transparent;
+}
+.p-add-product:hover {
+  text-decoration: underline;
+  cursor: pointer;
+  text-decoration-color: #252f3a;
+}
+svg {
+  margin: 0px;
+}
+
+.font-size-head {
+  font-size: 18px !important;
+}
+.font-size-body {
+  font-size: 16px !important;
+}
+
+thead {
+  background-color: var(--color-primario);
+}
+th {
+  color: var(--color-secundario) !important;
+  text-align: center !important;
+  padding: 8px 0px;
+}
+table {
+  width: 100%;
+  margin-top: 30px;
+}
+.th-id,
+.td-id {
+  width: 40px;
+  text-align: center;
+}
+.th-documento,
+.td-documento {
+  min-width: 125px;
+}
+.th-nombres,
+.td-nombres {
+  min-width: 175px;
+}
+.th-apellidos,
+.td-apellidos {
+  min-width: 175px;
+}
+.th-celular,
+.td-celular {
+  min-width: 145px;
+}
+.th-email,
+.td-email {
+  min-width: 270px;
+}
+.th-direccion,
+.td-direccion {
+  min-width: 340px;
+}
+.th-estado,
+.td-estado {
+  min-width: 120px;
+}
+.th-perfil,
+.td-perfil {
+  min-width: 230px;
+}
+.th-button,
+.td-button {
+  min-width: 40px;
+}
+td {
+  border-bottom: 1px solid #252f3a !important;
+  padding: 10px 0px 10px 6px;
+} /* agregar border-botton*/
+tr {
+  border: 1px solid #252f3a !important;
+}
+
+.td-button {
+  padding: 8px 0px !important;
+  text-align: center;
+}
+.td-id {
+  padding-left: 0px !important;
+}
+
+.button-modal {
+  background-color: transparent;
+  margin: 0px;
+  padding: 0px;
+  border: 0px none transparent;
+}
+
+.span-red {
+  color: red !important;
+}
+
+.input-red {
+  border-color: red !important;
+}
+
+.p-campo-obligatorio {
+  margin-bottom: 0px !important;
+  margin-top: 25px !important;
+}
+
+.p-correo {
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+
+.input-text-email {
+  margin-top: 1px;
+}
+
+/*  Diseño responsive --------------------  */
+@media screen and (max-width: 1980px) {
+  .font-size-head {
+    font-size: 17px !important;
+  }
+  .font-size-body {
+    font-size: 15px !important;
+  }
+}
+@media screen and (max-width: 1940px) {
+  .div-content {
+    top: 80px;
+    right: 0px;
+    left: 0px;
+    padding: 0px 105px;
+  }
+}
+@media screen and (max-width: 1930px) {
+  .div-content {
+    top: 80px;
+    right: 0px;
+    left: 0px;
+    padding: 0px 100px;
+  }
+}
+@media screen and (max-width: 1920px) {
+  .div-content {
+    top: 80px;
+    right: 0px;
+    left: 0px;
+    padding: 0px 95px;
+  }
+}
+@media screen and (max-width: 1910px) {
+  .div-content {
+    top: 80px;
+    right: 0px;
+    left: 0px;
+    padding: 0px 90px;
+  }
+}
+@media screen and (max-width: 1900px) {
+  .th-id,
+  .td-id {
+    width: 35px;
+  }
+  .th-documento,
+  .td-documento {
+    min-width: 120px;
+  }
+  .th-nombres,
+  .td-nombres {
+    min-width: 170px;
+  }
+  .th-apellidos,
+  .td-apellidos {
+    min-width: 170px;
+  }
+  .th-celular,
+  .td-celular {
+    min-width: 140px;
+  }
+  .th-email,
+  .td-email {
+    min-width: 260px;
+  }
+  .th-direccion,
+  .td-direccion {
+    min-width: 330px;
+  }
+  .th-estado,
+  .td-estado {
+    min-width: 110px;
+  }
+  .th-perfil,
+  .td-perfil {
+    min-width: 220px;
+  }
+}
+
+@media screen and (max-width: 1825px) {
+  .div-content {
+    top: 80px;
+    right: 0px;
+    left: 0px;
+    padding: 0px 80px;
+  }
+}
+@media screen and (max-width: 1805px) {
+  .div-content {
+    top: 80px;
+    right: 0px;
+    left: 0px;
+    padding: 0px 70px;
+  }
+}
+@media screen and (max-width: 1785px) {
+  .div-content {
+    top: 80px;
+    right: 0px;
+    left: 0px;
+    padding: 0px 60px;
+  }
+}
+@media screen and (max-width: 1765px) {
+  .div-content {
+    top: 80px;
+    right: 0px;
+    left: 0px;
+    padding: 0px 50px;
+  }
+}
+@media screen and (max-width: 1745px) {
+  .div-content {
+    top: 80px;
+    right: 0px;
+    left: 0px;
+    padding: 0px 40px;
+  }
+  .th-documento,
+  .td-documento {
+    min-width: 110px;
+  }
+  .th-nombres,
+  .td-nombres {
+    min-width: 160px;
+  }
+  .th-apellidos,
+  .td-apellidos {
+    min-width: 160px;
+  }
+  .th-celular,
+  .td-celular {
+    min-width: 135px;
+  }
+  .th-email,
+  .td-email {
+    min-width: 255px;
+  }
+  .th-direccion,
+  .td-direccion {
+    min-width: 320px;
+  }
+  .th-estado,
+  .td-estado {
+    min-width: 105px;
+  }
+  .th-perfil,
+  .td-perfil {
+    min-width: 200px;
+  }
+}
+@media screen and (max-width: 1660px) {
+  .div-content {
+    top: 80px;
+    right: 0px;
+    left: 0px;
+    padding: 0px 30px;
+  }
+}
+@media screen and (max-width: 1640px) {
+  .div-content {
+    top: 80px;
+    right: 0px;
+    left: 0px;
+    padding: 0px 20px;
+  }
+  .div-add-product {
+    margin-left: 20px !important;
+  }
+}
+@media screen and (max-width: 1620px) {
+  .div-content {
+    top: 80px;
+    right: 0px;
+    left: 0px;
+    padding: 0px 10px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .div-content {
+    top: 80px;
+    right: 0px;
+    left: 0px;
+    padding: 0px 0px;
+  }
+  .th-documento,
+  .td-documento {
+    min-width: 100px;
+  }
+  .th-nombres,
+  .td-nombres {
+    min-width: 155px;
+  }
+  .th-apellidos,
+  .td-apellidos {
+    min-width: 155px;
+  }
+  .th-email,
+  .td-email {
+    min-width: 240px;
+  }
+  .th-direccion,
+  .td-direccion {
+    min-width: 310px;
+  }
+}
