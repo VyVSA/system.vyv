@@ -228,7 +228,7 @@ h6 {
   border-width: 2px !important;
 }
 
-/*  registro-productos.php  ----------  */
+/*  registro-usuario.php  ----------  */
 .div-content {
   top: 80px;
   right: 0px;
@@ -236,29 +236,16 @@ h6 {
   padding: 0px 110px;
 }
 
-.div-registro-productos {
+.div-registro-usuario {
   height: auto !important;
-  width: 1040px !important;
-  margin-top: 10px !important;
-  margin-bottom: 50px !important;
+  width: 580px !important;
+  margin-top: 50px !important;
   padding-left: 80px !important;
   padding-right: 80px !important;
   border: 2px solid var(--color-primario) !important;
   border-radius: 5px !important;
   background-color: var(--color-background-form) !important;
   /* alinea el contenedor en el centro*/
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-.button-volver {
-  border: none !important;
-  padding: 0px !important;
-}
-
-.div-button-volver {
-  margin-top: 50px !important;
-  width: 1040px !important;
   margin-left: auto !important;
   margin-right: auto !important;
 }
@@ -286,23 +273,18 @@ h6 {
   justify-content: center;
 }
 
-.label-procedencia,
-.label-descripcion {
-  margin-top: 15px;
-}
-
 .label-title {
   padding-top: 40px;
+  display: block;
+}
+.label-descripcion {
+  padding-top: 5px;
   display: block;
 }
 .label {
   padding-top: 15px;
   display: inline-block;
   width: 200px;
-}
-
-.ejemplo-o {
-  border: 1px solid #252f3a;
 }
 
 .width-100 {
@@ -467,15 +449,6 @@ tr {
   border: 0px none transparent;
 }
 
-.align-div {
-  text-align: right;
-  width: 50%;
-}
-
-.column-2-button {
-  padding-left: 20px;
-}
-
 .span-red {
   color: red !important;
 }
@@ -500,7 +473,6 @@ tr {
 
 textarea {
   border-width: 2px !important;
-  padding-bottom: 12px !important;
 }
 
 .footer-style {
@@ -511,17 +483,6 @@ textarea {
   right: 0px;
   margin-top: 50px;
   background-color: #252f3a;
-}
-
-.column-1 {
-  width: 50%;
-  display: inline-block;
-  padding-right: 20px !important;
-}
-.column-2 {
-  width: 50%;
-  display: inline-block;
-  padding-left: 20px !important;
 }
 
 /*  Diseño responsive --------------------  */

@@ -13,18 +13,18 @@ function spanDescripcionIn(){
 }
 function spanDescripcionOut(){
 	document.getElementById("descripcion").value = document.getElementById("descripcion").value.trim();
-	if ((document.getElementById("descripcion").value == "") || (isNaN(document.getElementById("descripcion").value) == true)) {
+	if (document.getElementById("descripcion").value == ""){
 		document.getElementById("descripcion").className += " input-red";
 	}
 }
 
-/* input nombres */
-function spanNombresIn(){
-	document.getElementById("nombres").className =document.getElementById("nombres").className.replace( /(?:^|\s)input-red(?!\S)/g , '' );
+/* input marca */
+function spanmarcaIn(){
+	document.getElementById("marca").className =document.getElementById("marca").className.replace( /(?:^|\s)input-red(?!\S)/g , '' );
 }
-function spanNombresOut(){
-	document.getElementById("nombres").value = document.getElementById("nombres").value.trim();
-	if (document.getElementById("nombres").value == "") {document.getElementById("nombres").className += " input-red";}
+function spanmarcaOut(){
+	document.getElementById("marca").value = document.getElementById("marca").value.trim();
+	if (document.getElementById("marca").value == "0") {document.getElementById("marca").className += " input-red";}
 }
 
 /* input modelo */
@@ -48,7 +48,7 @@ function spanEmailOut(){
 
 /*borrar(){
 	form-usuario.descripcion.value='';
-	form-usuario.nombres.value='';
+	form-usuario.marca.value='';
 	form-usuario.modelo.value='';
 	form-usuario.lote.value='';
 	form-usuario.email.value='';
