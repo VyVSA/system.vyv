@@ -140,7 +140,7 @@
 							</div>
 
 							<!-- inputs submit -->
-							<button type="button" id="button-cancelar" class="btn btn-cancelar" onclick="" <?php /*echo 'data-bs-dismiss="modal"'*/ ?>>Cancelar</button>
+							<button type="button" id="button-cancelar" class="btn btn-cancelar" onclick="" <?php echo 'data-bs-dismiss="modal"' ?>>Cancelar</button>
 							<input type="submit" id="input-registrar" class="btn" name="registrar" value="Registrar">
 							
 						</form>
