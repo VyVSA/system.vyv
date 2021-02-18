@@ -250,11 +250,34 @@ h6 {
   margin-right: auto !important;
 }
 
+.div-registro-marca {
+  height: auto !important;
+  width: 560px !important;
+  margin-top: 250px !important;
+  padding-left: 80px !important;
+  padding-right: 80px !important;
+  border: 2px solid var(--color-primario) !important;
+  border-radius: 5px !important;
+  background-color: var(--color-background-form) !important;
+  /* alinea el contenedor en el centro*/
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+#button-cancelar-marca {
+  margin-right: 17px !important;
+}
+
+.modal-dialog {
+  align-items: center;
+  justify-content: center;
+}
+
 .label-title {
   padding-top: 40px;
   display: block;
 }
-.label-document {
+.label-descripcion {
   padding-top: 5px;
   display: block;
 }
@@ -271,7 +294,7 @@ h6 {
 input,
 select,
 button {
-  font-size: 16px !important;
+  font-size: 16px;
   height: 35px;
   padding-top: 10px;
   background-color: var(--color-secundario);
@@ -295,11 +318,12 @@ select {
   border-color: var(--color-primario) !important;
 }
 
-.input-perfil {
+.input-select {
   border-radius: 5px 0px 0px 5px !important;
 }
 
-#button-funciones {
+#button-marca,
+#button-procedencia {
   display: inline-block;
   width: 100px !important;
   margin-bottom: 0px !important;
@@ -441,6 +465,10 @@ tr {
 
 .input-text-email {
   margin-top: 1px;
+}
+
+textarea {
+  border-width: 2px !important;
 }
 
 /*  Diseño responsive --------------------  */

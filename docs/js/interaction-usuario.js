@@ -1,6 +1,7 @@
 
 document.getElementById("item-usuarios").className = "active";
 document.getElementById("a-perfiles").href = "../perfiles/registro-perfiles.php";
+document.getElementById("a-productos").href = "../deposito/productos.php";
 document.getElementById("input-registrar").disabled = true;
 document.getElementById("button-funciones").disabled = true;
 /*document.getElementById("a-productos").href = "../productos/registro-productos.php";*/

@@ -1,0 +1,105 @@
+/*  estilos del menú  ----------  */
+div.menu {
+  position: relative;
+  height: 80px;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  display: flex;
+  align-items: center;
+  background: var(--color-navfooter);
+}
+/*  logo de la empresa  ----------  */
+img.logo {
+  position: absolute;
+  height: 70px;
+  left: 100px;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+/*  items del menú  ----------  */
+lu.items {
+  position: absolute;
+  left: 250px;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+lu.items li.item-menu {
+  display: inline-block;
+  padding: 0px;
+  margin: 0px 15px;
+  vertical-align: middle;
+}
+lu.items li.item-menu h2:hover {
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.5s;
+}
+lu.items li.item-menu h2.active {
+  font-weight: 500;
+  text-align: center;
+}
+lu.items li.item-menu h2 {
+  font-weight: 300;
+  text-align: center;
+}
+li.item-menu h2 {
+  margin: 0px;
+  width: 115px;
+  display: inline-block;
+}
+.btn-cuenta {
+  position: absolute;
+  right: 100px;
+  background-color: #d1d9e2;
+  border-color: #d1d9e2;
+  border-style: none;
+  width: 135px;
+  font-size: 24px;
+  font-weight: 300;
+  text-align: left;
+  transition: 0.5s;
+  padding-top: 0px !important;
+}
+.btn-cuenta:hover {
+  font-weight: 500;
+}
+@media screen and (max-width: 1300px) {
+  img.logo {
+    left: 80px;
+  }
+  .btn-cuenta {
+    right: 80px;
+  }
+  lu.items {
+    left: 225px;
+  }
+}
+@media screen and (max-width: 1250px) {
+  img.logo {
+    left: 70px;
+  }
+  .btn-cuenta {
+    right: 70px;
+  }
+  lu.items {
+    left: 200px;
+  }
+}
+@media screen and (max-width: 1175px) {
+  img.logo {
+    left: 60px;
+  }
+  .btn-cuenta {
+    right: 60px;
+  }
+  lu.items {
+    left: 180px;
+  }
+  lu.items li.item-menu {
+    margin: 0px 10px;
+  }
+}

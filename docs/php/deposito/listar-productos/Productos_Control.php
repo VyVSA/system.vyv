@@ -1,5 +1,5 @@
 <?php
-	include_once '../../conexion.inc.php';
+	include_once '../conexion.inc.php';
 	class Productos_Control{
 
 		public function __construct(){}
