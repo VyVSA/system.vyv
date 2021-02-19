@@ -20,14 +20,16 @@
 			$this->observacion = $observacion;
 		}
 
-		public function registrar(){
-			$producto_control = new Producto_Control(	$this->descripcion,
-														$this->marca,
-														$this->modelo,
-														$this->lote,
-														$this->procedencia,
-														$this->fecha_vencimiento,
-														$this->observacion);
+		public function registrar($conexion){
+			$producto_control = new Producto_Control();
+			$producto_control->registrar(	$conexion,
+											$this->descripcion,
+											$this->marca,
+											$this->modelo,
+											$this->lote,
+											$this->procedencia,
+											$this->fecha_vencimiento,
+											$this->observacion);
 		}
 
 	}

@@ -223,7 +223,7 @@
 		</div>
 
 		<!-- interacciones con javascript -->
-		<script src="../../js/interaction-producto.js"></script>
+		<script src="../../js/interaction-productos.js"></script>
         <script>
             function registrarProductos(){
                 window.location.href="registro-productos.php";

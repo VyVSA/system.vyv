@@ -5,7 +5,17 @@ document.getElementById("a-usuarios").href ="../usuarios/registro-usuarios.php";
 document.getElementById("input-registrar").disabled = true;
 
 document.getElementById("button-funciones").disabled = true;
-/*document.getElementById("a-productos").href = "../productos/registro-productos.php";*/
+
+
+/* select procedencia */
+function spanProcedenciaIn(){
+	document.getElementById("procedencia").className =document.getElementById("procedencia").className.replace( /(?:^|\s)input-red(?!\S)/g , '' );
+}
+function spanProcedenciaOut(){
+	document.getElementById("procedencia").value = document.getElementById("procedencia").value.trim();
+	if (document.getElementById("procedencia").value == "") {document.getElementById("procedencia").className += " input-red";}
+}
+
 
 /* cambio de color por campos requeridos incompletos */
 /* input descripcion */
@@ -25,16 +35,7 @@ function spanMarcaIn(){
 }
 function spanMarcaOut(){
 	document.getElementById("marca").value = document.getElementById("marca").value.trim();
-	if (document.getElementById("marca").value == "0") {document.getElementById("marca").className += " input-red";}
-}
-
-/* select procedencia */
-function spanProcedenciaIn(){
-	document.getElementById("procedencia").className =document.getElementById("procedencia").className.replace( /(?:^|\s)input-red(?!\S)/g , '' );
-}
-function spanProcedenciaOut(){
-	document.getElementById("procedencia").value = document.getElementById("procedencia").value.trim();
-	if (document.getElementById("procedencia").value == "0") {document.getElementById("procedencia").className += " input-red";}
+	if (document.getElementById("marca").value == "") {document.getElementById("marca").className += " input-red";}
 }
 
 /* input modelo */

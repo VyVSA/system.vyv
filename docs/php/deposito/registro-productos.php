@@ -41,7 +41,7 @@
 						<div class="column-1">
 							<!-- input descripción - campo obligatorio-->
 							<label class="font-18px label-descripcion">Descripción<span id="spanDescripcion" class=""> * </span></label>
-							<input 	type="text" name="documento" id="input-descripcion" class="form-control width-100" onfocusout="spanDescripcionOut()" onfocusin="spanDescripcionIn()">
+							<input 	type="text" name="descripcion" id="input-descripcion" class="form-control width-100" onfocusout="spanDescripcionOut()" onfocusin="spanDescripcionIn()" oninput="validarCampo()">
 
 							<!-- select marcas - campo obligatorio-->
 							<label class="font-18px label">Marca<span id="spanMarca" class="" onfocusout="spanMarcaOut()"onfocusin="spanMarcaIn()"> * </span></label>
@@ -55,8 +55,8 @@
 								Conexion::cerrar_conexion();
 							?>
 							<div class="input-group divv">
-								<select name="marca" id="marca" class="form-control input-group input-select" onfocusout="spanMarcaOut()" onfocusin="spanMarcaIn()">
-									<option value="0"></option>
+								<select name="marca" id="marca" class="form-control input-group input-select" onfocusout="spanMarcaOut()" onfocusin="spanMarcaIn()" oninput="validarCampo()">
+									<option></option>
 									<?php foreach ($marcas as $marca) {?><option value="<?php echo $marca[0]?>"><?php echo $marca[1]?></option><?php }?>
 								</select>
 								<!-- button abrir segundo modal registro de marca -->
@@ -65,7 +65,7 @@
 
 							<!-- input modelo - campo obligatorio-->
 							<label class="font-18px label">Modelo<span id="spanModelo" class=""> * </span></label>
-							<input type="text" name="modelo" id="modelo" class="form-control width-100" onfocusout="spanModeloOut()" onfocusin="spanModeloIn()">
+							<input type="text" name="modelo" id="modelo" class="form-control width-100" onfocusout="spanModeloOut()" onfocusin="spanModeloIn()" oninput="validarCampo()">
 
 							<!-- input lote -->
 							<label class="font-18px label">Lote</label>
@@ -84,7 +84,7 @@
 								Conexion::cerrar_conexion();
 							?>
 							<div class="input-group divv">
-								<select name="procedencia" id="procedencia" class="form-control input-group input-select">
+								<select name="procedencia" id="procedencia" class="form-control input-group input-select" onfocusout="spanProcedenciaOut()" onfocusin="spanProcedenciaIn()" oninput="validarCampo()">
 									<option></option>
 									<?php foreach ($procedencias as $procedencia) {?><option value="<?php echo $procedencia[0]?>"><?php echo $procedencia[1]?></option><?php }?>
 								</select>
@@ -93,11 +93,11 @@
 								</div>
 							</div>
 
-							<!-- input dirección -->
+							<!-- input vencimiento -->
 							<label class="font-18px label">Fecha de vencimiento</label>
 							<input type="date" name="vencimiento" id="vencimiento" class="form-control width-100">
 
-							<!-- Select perfil -->
+							<!-- input observaciones -->
 							<label class="font-18px label">Observaciones</label>
 							<textarea rows="4" name="observaciones" class="form-control"></textarea>
 						</div>
@@ -106,40 +106,42 @@
 							<div class="input-group">
 								<div class="align-div"></div>
 								<div class="align-div column-2-button">
-									<button type="button" id="button-cancelar" class="btn" <?php echo 'data-bs-dismiss="modal"' ?>>Cancelar</button>
+									<button type="button" id="button-cancelar" class="btn">Cancelar</button>
 									<input type="submit" id="input-registrar" class="btn" name="registrar" value="Registrar">
 								</div>
 							</div>
 						</div>
 					</div>
 				</form>
+
 				<!-- conexión a la base de datos y consulta a la misma para comprobar las credenciales -->
-				<?php if (isset($_POST['registrar'])) { $documento = $_POST['documento'];
-					if ($documento != '' && is_numeric($documento)) { $marcas = trim($_POST['marcas']);
-						if ($marcas != '' && is_string($marcas)) { $modelo = trim($_POST['modelo']);
-							if ($modelo != '' && is_string($modelo)) { $procedencia = str_replace(' ', '', trim($_POST['procedencia']));
-								if ($procedencia != '' && is_string($procedencia)) { $perfil = $_POST['perfil'];
-									if ($perfil != '' && is_numeric($perfil)) {
-										$lote = $_POST['lote'];
-										$direccion = $_POST['direccion'];
-										Conexion::abrir_conexion();
-										$conexion = Conexion::obtener_conexion();			
-										$usuario = new Usuario_Boundary($conexion, $documento, $marcas, $modelo, $lote, $procedencia, $direccion, $perfil);
-										$var = $usuario->registrar();
-										if ($var) {
-											echo 'funciona';
-										} else {
-											echo	'<script type="text/javascript">
-														alert("No se puede registrar.");
-													</script>';
-										}
-										Conexion::cerrar_conexion();
-									}
+				<?php if (isset($_POST['registrar'])) {
+					$descripcion = $_POST['descripcion'];
+					if ($descripcion != '') {
+						$marca = $_POST['marca'];
+						if ($marca != '') {
+							$modelo = trim($_POST['modelo']);
+							if ($modelo != '') {
+								$procedencia = $_POST['procedencia'];
+								if ($procedencia != '') {
+									$lote = $_POST['lote'];
+									$vencimiento = $_POST['vencimiento'];
+									$observaciones = $_POST['observaciones'];
+									Conexion::abrir_conexion();
+									$conexion = Conexion::obtener_conexion();			
+									$producto_boundary = new Producto_Boundary($descripcion, $marca, $modelo, $lote, $procedencia, $vencimiento, $observaciones);
+									$producto_boundary->registrar($conexion);
+									echo	'<script type="text/javascript">
+												window.location.href="productos.php";
+												alert("Nuevo producto registrado con éxito.");
+											</script>';
+									Conexion::cerrar_conexion();
 								}
 							}
 						}
 					}
-				}?>
+				}
+				?>
 			</div>
 
 			<!-- modal registro de marcas -->
@@ -233,7 +235,7 @@
 
                             <!-- input marca -->
                             <label class="font-18px label-marca">Nombre<span id="spanProcedencia" class=""> * </span></label>
-                            <input 	type="text" name="nombre-procedencia" id="input-procedencia" class="form-control width-100" onfocusout="spanNombreProcedenciaOut()" onfocusin="spanNombreProcedenciaIn()" oninput="validarProcedencia()">
+                            <input 	type="text" name="nombre-procedencia" id="input-procedencia" class="form-control width-100" onfocusout="spanNombreProcedenciaOut()" onfocusin="spanNombreProcedenciaIn()" oninput="validarNombreProcedencia()">
 
                             <!-- inputs submit -->
                             <button type="button" id="button-cancelar-procedencia" class="btn" onclick="verificarProcedencia()">Cancelar</button>
@@ -264,7 +266,6 @@
                                                     procedencia(nombre)
                                                 VALUE
                                                     ('$nombre');";
-                                
 									$sentencia = $conexion->prepare($querySql);
 									$sentencia->execute();
 
@@ -282,7 +283,7 @@
 									}
 
 									echo 	'<script type="text/javascript">
-												var sel = document.getElementById("marca");
+												var sel = document.getElementById("procedencia");
 												var opt = document.createElement("option");
 												opt.value = "',$id_procedencia,'";
 												opt.text = "',$nombre,'";
@@ -306,16 +307,20 @@
 		</div>
 
 		<!-- interacciones con javascript -->
-		<script src="../../js/interaction-producto.js"></script>
+		<script src="../../js/interaction-productos.js"></script>
 		<script>
 			document.getElementById("input-registrar-marca").disabled = true;
 			function verificar(){
 				if (document.getElementById("input-marca").value == "") {
+					document.getElementById("input-marca").className = document.getElementById("input-marca").className.replace( /(?:^|\s)input-red(?!\S)/g , '' );
+					document.getElementById("input-registrar-marca").disabled = true;
 					$('#staticBackdrop2').modal('hide');
 				} else {
 					var respuesta = confirm("¿Desea salir?\nSi sale se perderán los cambios realizados.");
 					if(respuesta == true) {
 						document.getElementById("input-marca").value = "";
+						document.getElementById("input-marca").className = document.getElementById("input-marca").className.replace( /(?:^|\s)input-red(?!\S)/g , '' );
+						document.getElementById("input-registrar-marca").disabled = true;
 						$('#staticBackdrop2').modal('hide');
 					}
 				}
@@ -342,15 +347,46 @@
 			/* Procedencia -------------------- */
 			function verificarProcedencia(){
 				if (document.getElementById("input-procedencia").value == "") {
+					document.getElementById("input-procedencia").className =document.getElementById("input-procedencia").className.replace( /(?:^|\s)input-red(?!\S)/g , '' );
+					document.getElementById("input-registrar-procedencia").disabled = true;
 					$('#staticBackdrop3').modal('hide');
 				} else {
 					var respuesta = confirm("¿Desea salir?\nSi sale se perderán los cambios realizados.");
 					if(respuesta == true) {
 						document.getElementById("input-procedencia").value = "";
+						document.getElementById("input-procedencia").className =document.getElementById("input-procedencia").className.replace( /(?:^|\s)input-red(?!\S)/g , '' );
+						document.getElementById("input-registrar-procedencia").disabled = true;
 						$('#staticBackdrop3').modal('hide');
 					}
 				}
 			}
+
+			document.getElementById("input-registrar-procedencia").disabled = true;
+			function spanNombreProcedenciaIn(){
+				document.getElementById("input-procedencia").className =document.getElementById("input-procedencia").className.replace( /(?:^|\s)input-red(?!\S)/g , '' );
+			}
+			function spanNombreProcedenciaOut(){
+				document.getElementById("input-procedencia").value = document.getElementById("input-procedencia").value.trim();
+				if (document.getElementById("input-procedencia").value == "") {document.getElementById("input-procedencia").className += " input-red";}
+			}
+			function validarNombreProcedencia(){
+				if (document.getElementById("input-procedencia").value != "") {
+					document.getElementById("input-registrar-procedencia").disabled = false;
+				} else {
+					document.getElementById("input-registrar-procedencia").disabled = true;
+				}
+			}
+
+			function validarCampo(){
+				if ((document.getElementById("input-descripcion").value != "") && (document.getElementById("marca").value != "") && (document.getElementById("modelo").value != "") && (document.getElementById("procedencia").value != "")){
+					document.getElementById("input-registrar").disabled = false;
+				} else {
+					document.getElementById("input-registrar").disabled = true;
+				}
+			}
+
+			document.getElementById("a-productos").href = "productos.php";
+
 		</script>
 		<!-- Javascript de boostrap -->
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
