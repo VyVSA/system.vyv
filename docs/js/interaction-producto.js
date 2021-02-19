@@ -1,31 +1,33 @@
 
 document.getElementById("item-productos").className = "active";
 document.getElementById("a-perfiles").href = "../perfiles/registro-perfiles.php";
-document.getElementById("a-usuarios").href ="../usuarios/registro-usuarios.php"
+document.getElementById("a-usuarios").href ="../usuarios/registro-usuarios.php";
 document.getElementById("input-registrar").disabled = true;
+
 document.getElementById("button-funciones").disabled = true;
 /*document.getElementById("a-productos").href = "../productos/registro-productos.php";*/
 
 /* cambio de color por campos requeridos incompletos */
 /* input descripcion */
 function spanDescripcionIn(){
-	document.getElementById("descripcion").className =document.getElementById("descripcion").className.replace( /(?:^|\s)input-red(?!\S)/g , '' );
+	document.getElementById("input-descripcion").className =document.getElementById("input-descripcion").className.replace( /(?:^|\s)input-red(?!\S)/g , '' );
 }
 function spanDescripcionOut(){
-	document.getElementById("descripcion").value = document.getElementById("descripcion").value.trim();
-	if (document.getElementById("descripcion").value == ""){
-		document.getElementById("descripcion").className += " input-red";
+	document.getElementById("input-descripcion").value = document.getElementById("input-descripcion").value.trim();
+	if (document.getElementById("input-descripcion").value == ""){
+		document.getElementById("input-descripcion").className += " input-red";
 	}
 }
 
-/* input marca */
-function spanmarcaIn(){
+/* select marca */
+function spanMarcaIn(){
 	document.getElementById("marca").className =document.getElementById("marca").className.replace( /(?:^|\s)input-red(?!\S)/g , '' );
 }
-function spanmarcaOut(){
+function spanMarcaOut(){
 	document.getElementById("marca").value = document.getElementById("marca").value.trim();
 	if (document.getElementById("marca").value == "0") {document.getElementById("marca").className += " input-red";}
 }
+
 
 /* input modelo */
 function spanModeloIn(){

@@ -8,7 +8,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<!-- estilos css personalizados -->
-		<link rel="stylesheet" type="text/css" href="../../css/productos.css">
+		<link rel="stylesheet" type="text/css" href="../../css/producto.css">
 		<link rel="stylesheet" type="text/css" href="../../css/menu-head.css">
         <!-- estilos de texto -->
 		<link rel="preconnect" href="https://fonts.gstatic.com">
@@ -74,6 +74,116 @@
 					<?php } ?>
 				</tbody>
 			</table>
+			<!-- modal de registro de productos -->
+			<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content div-registro-usuario">
+						<!-- formulario de registro de perfiles -->
+						<form method="POST" name="form-usuario">
+							<label class="font-24px label-title">Registro de producto</label>
+							<p class="font-14px p-campo-obligatorio">* Campo obligatorio</p>
+
+							<!-- input descripción - campo obligatorio-->
+							<label class="font-18px label-descripcion">Descripción<span id="spanDescripcion" class=""> * </span></label>
+							<input 	type="text" name="documento" id="descripcion" class="form-control width-100" onfocusout="spanDescripcionOut()"onfocusin="spanDescripcionIn()">
+
+                            <!-- input marcas - campo obligatorio-->
+							<label class="font-18px label">Marca<span id="spanMarca" class="" onfocusout="spanMarcaOut()"onfocusin="spanMarcaIn()"> * </span></label>
+                            <?php
+								$querySql = "SELECT * FROM marca;";
+								Conexion::abrir_conexion();
+								$conexion = Conexion::obtener_conexion();
+								$sentencia = $conexion->prepare($querySql);
+								$sentencia->execute();
+								$marcas = $sentencia->fetchAll();
+								Conexion::cerrar_conexion();
+							?>
+                            <div class="input-group divv">
+                                <select name="marca" id="marca" class="form-control input-group input-select">
+                                    <option value="0"></option>
+                                    <?php foreach ($marcas as $marca) {?><option value="<?php echo $marca[0]?>"><?php echo $marca[1]?></option><?php }?>
+                                </select>
+                                <!-- button abrir segundo modal registro de marca -->
+                                <div><button type="button" id="button-marca" class="btn form-control" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">Agregar</button></div>
+                            </div>
+
+							<!-- input modelo - campo obligatorio-->
+							<label class="font-18px label">Modelo<span id="spanModelo" class=""> * </span></label>
+							<input type="text" name="modelo" id="modelo" class="form-control width-100" onfocusout="spanModeloOut()" onfocusin="spanModeloIn()" oninput="validarCampos()">
+
+							<!-- input lote -->
+							<label class="font-18px label">Lote</label>
+							<input type="text" name="lote" id="lote" class="form-control width-100">
+
+							<!-- input procedencia - campo obligatorio-->
+							<label class="font-18px label">Procedencia<span id="spanProcedencia" class=""> * </span></label>
+                            <?php
+								$querySql = "SELECT * FROM procedencia;";
+								Conexion::abrir_conexion();
+								$conexion = Conexion::obtener_conexion();
+								$sentencia = $conexion->prepare($querySql);
+								$sentencia->execute();
+								$procedencias = $sentencia->fetchAll();
+								Conexion::cerrar_conexion();
+							?>
+                            <div class="input-group divv">
+                                <select name="procedencia" id="procedencia" class="form-control input-group input-select">
+                                    <option></option>
+                                    <?php foreach ($procedencias as $procedencia) {?><option value="<?php echo $procedencia[0]?>"><?php echo $procedencia[1]?></option><?php }?>
+                                </select>
+                                <div>
+                                    <button type="button" id="button-procedencia" class="btn form-control" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">Agregar</button>
+                                </div>
+                            </div>
+
+							<!-- input dirección -->
+							<label class="font-18px label">Fecha de vencimiento</label>
+							<input type="date" name="vencimiento" id="vencimiento" class="form-control width-100">
+
+							<!-- Select perfil -->
+							<label class="font-18px label">Observaciones</label>
+                            <textarea rows="3" name="observaciones" class="form-control"></textarea>
+							
+							<!-- inputs submit -->
+							<button type="button" id="button-cancelar" class="btn" <?php echo 'data-bs-dismiss="modal"' ?>>Cancelar</button>
+							<input type="submit" id="input-registrar" class="btn" name="registrar" value="Registrar">
+							
+						</form>
+						<!-- conexión a la base de datos y consulta a la misma para comprobar las credenciales -->
+						<?php
+							if (isset($_POST['registrar'])) { $documento = $_POST['documento'];
+								if ($documento != '' && is_numeric($documento)) { $marcas = trim($_POST['marcas']);
+									if ($marcas != '' && is_string($marcas)) { $modelo = trim($_POST['modelo']);
+										if ($modelo != '' && is_string($modelo)) { $procedencia = str_replace(' ', '', trim($_POST['procedencia']));
+											if ($procedencia != '' && is_string($procedencia)) { $perfil = $_POST['perfil'];
+												if ($perfil != '' && is_numeric($perfil)) {
+													$lote = $_POST['lote'];
+													$direccion = $_POST['direccion'];
+
+													Conexion::abrir_conexion();
+													$conexion = Conexion::obtener_conexion();			
+													$usuario = new Usuario_Boundary($conexion, $documento, $marcas, $modelo, $lote, $procedencia, $direccion, $perfil);
+													$var = $usuario->registrar();
+
+													if ($var) {
+														echo 'funciona';
+													} else {
+														echo	'<script type="text/javascript">
+																	alert("No se puede registrar.");
+																</script>';
+													}
+
+													Conexion::cerrar_conexion();
+												}
+											}
+										}
+									}
+								}
+							}
+						?>
+					</div>
+				</div>
+			</div>
 
             <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 				<div class="modal-dialog">
@@ -113,7 +223,7 @@
 		</div>
 
 		<!-- interacciones con javascript -->
-		<script src="../../js/interaction-productos.js"></script>
+		<script src="../../js/interaction-producto.js"></script>
         <script>
             function registrarProductos(){
                 window.location.href="registro-productos.php";

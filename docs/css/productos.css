@@ -228,7 +228,7 @@ h6 {
   border-width: 2px !important;
 }
 
-/*  registro-usuario.php  ----------  */
+/*  registro-productos.php  ----------  */
 .div-content {
   top: 80px;
   right: 0px;
@@ -236,10 +236,11 @@ h6 {
   padding: 0px 110px;
 }
 
-.div-registro-usuario {
+.div-registro-productos {
   height: auto !important;
-  width: 580px !important;
-  margin-top: 50px !important;
+  width: 1040px !important;
+  margin-top: 10px !important;
+  margin-bottom: 50px !important;
   padding-left: 80px !important;
   padding-right: 80px !important;
   border: 2px solid var(--color-primario) !important;
@@ -248,6 +249,22 @@ h6 {
   /* alinea el contenedor en el centro*/
   margin-left: auto !important;
   margin-right: auto !important;
+}
+
+.button-volver {
+  border: none !important;
+  padding: 0px !important;
+}
+
+.div-button-volver {
+  margin-top: 50px !important;
+  width: 1040px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.modal-dialog {
+  max-width: 560px !important;
 }
 
 .div-registro-marca {
@@ -268,23 +285,31 @@ h6 {
   margin-right: 17px !important;
 }
 
+#button-cancelar-procedencia {
+  margin-right: 17px !important;
+}
 .modal-dialog {
   align-items: center;
   justify-content: center;
+}
+
+.label-procedencia,
+.label-descripcion {
+  margin-top: 15px;
 }
 
 .label-title {
   padding-top: 40px;
   display: block;
 }
-.label-descripcion {
-  padding-top: 5px;
-  display: block;
-}
 .label {
   padding-top: 15px;
   display: inline-block;
   width: 200px;
+}
+
+.ejemplo-o {
+  border: 1px solid #252f3a;
 }
 
 .width-100 {
@@ -449,6 +474,15 @@ tr {
   border: 0px none transparent;
 }
 
+.align-div {
+  text-align: right;
+  width: 50%;
+}
+
+.column-2-button {
+  padding-left: 20px;
+}
+
 .span-red {
   color: red !important;
 }
@@ -473,6 +507,7 @@ tr {
 
 textarea {
   border-width: 2px !important;
+  padding-bottom: 12px !important;
 }
 
 .footer-style {
@@ -483,6 +518,17 @@ textarea {
   right: 0px;
   margin-top: 50px;
   background-color: #252f3a;
+}
+
+.column-1 {
+  width: 50%;
+  display: inline-block;
+  padding-right: 20px !important;
+}
+.column-2 {
+  width: 50%;
+  display: inline-block;
+  padding-left: 20px !important;
 }
 
 /*  Diseño responsive --------------------  */

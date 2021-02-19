@@ -24,7 +24,7 @@
 		<?php include '../../menu-head.php' ?>
 		<div class="div-content">
 			<div class="div-button-volver">
-				<button class="button-volver" title="volver">
+				<button class="button-volver" title="Volver" onclick="listaProductos()">
 					<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
 						<path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
 					</svg>
@@ -41,9 +41,9 @@
 						<div class="column-1">
 							<!-- input descripción - campo obligatorio-->
 							<label class="font-18px label-descripcion">Descripción<span id="spanDescripcion" class=""> * </span></label>
-							<input 	type="text" name="documento" id="input-descripcion" class="form-control width-100" onfocusout="spanDescripcionOut()"onfocusin="spanDescripcionIn()">
+							<input 	type="text" name="documento" id="input-descripcion" class="form-control width-100" onfocusout="spanDescripcionOut()" onfocusin="spanDescripcionIn()">
 
-							<!-- input marcas - campo obligatorio-->
+							<!-- select marcas - campo obligatorio-->
 							<label class="font-18px label">Marca<span id="spanMarca" class="" onfocusout="spanMarcaOut()"onfocusin="spanMarcaIn()"> * </span></label>
 							<?php
 								$querySql = "SELECT * FROM marca;";
@@ -55,7 +55,7 @@
 								Conexion::cerrar_conexion();
 							?>
 							<div class="input-group divv">
-								<select name="marca" id="marca" class="form-control input-group input-select">
+								<select name="marca" id="marca" class="form-control input-group input-select" onfocusout="spanMarcaOut()" onfocusin="spanMarcaIn()">
 									<option value="0"></option>
 									<?php foreach ($marcas as $marca) {?><option value="<?php echo $marca[0]?>"><?php echo $marca[1]?></option><?php }?>
 								</select>
@@ -65,7 +65,7 @@
 
 							<!-- input modelo - campo obligatorio-->
 							<label class="font-18px label">Modelo<span id="spanModelo" class=""> * </span></label>
-							<input type="text" name="modelo" id="modelo" class="form-control width-100" onfocusout="spanModeloOut()" onfocusin="spanModeloIn()" oninput="validarCampos()">
+							<input type="text" name="modelo" id="modelo" class="form-control width-100" onfocusout="spanModeloOut()" onfocusin="spanModeloIn()">
 
 							<!-- input lote -->
 							<label class="font-18px label">Lote</label>
@@ -141,13 +141,219 @@
 					}
 				}?>
 			</div>
-		</div>
-		<!-- interacciones con javascript -->
-		<script src="../../js/interaction-productos.js"></script>
-		<script>
 
+			<!-- modal registro de marcas -->
+			<div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+				<div class="modal-dialog">
+                    <div class="modal-content div-registro-marca">
+                        <form method="POST" name="form-marca">
+                            <label class="font-24px label-title">Registro de marca</label>
+                            <p class="font-14px p-campo-obligatorio">* Campo obligatorio</p>
+
+                            <!-- input marca -->
+                            <label class="font-18px label-marca">Nombre<span id="spanMarca" class=""> * </span></label>
+                            <input 	type="text" name="nombre_marca" id="input-marca" class="form-control width-100" onfocusout="spanNombreMarcaOut()" onfocusin="spanNombreMarcaIn()" oninput="validarNombre()">
+
+                            <!-- inputs submit -->
+                            <button type="button" id="button-cancelar-marca" class="btn" onclick="verificar()">Cancelar</button>
+                            <input type="submit" id="input-registrar-marca" class="btn" name="registrar-marca" value="Registrar">
+                            <?php if ((isset($_POST['registrar-marca'])) && (($_POST['nombre_marca'] != ""))) {
+                                $nombre = $_POST['nombre_marca'];
+                                
+								Conexion::abrir_conexion();
+								$conexion = Conexion::obtener_conexion();
+								$querySql = "SELECT
+												nombre
+											FROM
+												marca
+											WHERE
+												UPPER(marca.nombre) = UPPER('$nombre')";
+								$sentencia = $conexion->prepare($querySql);
+								$sentencia->execute();
+								$resultado = $sentencia->fetchAll();
+								foreach ($resultado as $valor){
+									if ($valor[0] = "") {
+										$var = null;
+									} else {
+										$var = true;
+									}
+								}
+								if (is_null($var)) {
+									$querySql = "   INSERT INTO
+                                                    marca(nombre)
+                                                VALUE
+                                                    ('$nombre');";
+                                
+									$sentencia = $conexion->prepare($querySql);
+									$sentencia->execute();
+
+									$querySql = "	SELECT
+														id
+													FROM
+														marca
+													WHERE
+														marca.nombre = '$nombre'";
+									$sentencia = $conexion->prepare($querySql);
+									$sentencia->execute();
+									$resultado = $sentencia->fetchAll();
+									foreach ($resultado as $valor){
+										$id_marca = $valor[0];
+									}
+
+									echo 	'<script type="text/javascript">
+												var sel = document.getElementById("marca");
+												var opt = document.createElement("option");
+												opt.value = "',$id_marca,'";
+												opt.text = "',$nombre,'";
+												sel.add(opt, null);
+											</script>';
+
+									echo	'<script type="text/javascript">
+												alert("Nueva marca registrada con éxito.");
+											</script>';
+								} else {
+									echo	'<script type="text/javascript">
+												alert("Error al registrar.\nMarca ya registrada.");
+											</script>';
+								}
+								Conexion::cerrar_conexion();
+                            } ?>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+			<!-- modal registro de procedencias -->
+			<div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+				<div class="modal-dialog">
+                    <div class="modal-content div-registro-marca">
+                        <form method="POST" name="form-procedencia">
+                            <label class="font-24px label-title">Registro de procedencia</label>
+                            <p class="font-14px p-campo-obligatorio">* Campo obligatorio</p>
+
+                            <!-- input marca -->
+                            <label class="font-18px label-marca">Nombre<span id="spanProcedencia" class=""> * </span></label>
+                            <input 	type="text" name="nombre-procedencia" id="input-procedencia" class="form-control width-100" onfocusout="spanNombreProcedenciaOut()" onfocusin="spanNombreProcedenciaIn()" oninput="validarProcedencia()">
+
+                            <!-- inputs submit -->
+                            <button type="button" id="button-cancelar-procedencia" class="btn" onclick="verificarProcedencia()">Cancelar</button>
+                            <input type="submit" id="input-registrar-procedencia" class="btn" name="registrar-procedencia" value="Registrar">
+                            <?php if ((isset($_POST['registrar-procedencia'])) && (($_POST['nombre-procedencia'] != ""))) {
+                                $nombre = $_POST['nombre-procedencia'];
+                                
+								Conexion::abrir_conexion();
+								$conexion = Conexion::obtener_conexion();
+								$querySql = "SELECT
+												nombre
+											FROM
+												procedencia
+											WHERE
+												UPPER(procedencia.nombre) = UPPER('$nombre')";
+								$sentencia = $conexion->prepare($querySql);
+								$sentencia->execute();
+								$resultado = $sentencia->fetchAll();
+								foreach ($resultado as $valor){
+									if ($valor[0] = "") {
+										$var = null;
+									} else {
+										$var = true;
+									}
+								}
+								if (is_null($var)) {
+									$querySql = "   INSERT INTO
+                                                    procedencia(nombre)
+                                                VALUE
+                                                    ('$nombre');";
+                                
+									$sentencia = $conexion->prepare($querySql);
+									$sentencia->execute();
+
+									$querySql = "	SELECT
+														id
+													FROM
+														procedencia
+													WHERE
+														procedencia.nombre = '$nombre'";
+									$sentencia = $conexion->prepare($querySql);
+									$sentencia->execute();
+									$resultado = $sentencia->fetchAll();
+									foreach ($resultado as $valor){
+										$id_procedencia = $valor[0];
+									}
+
+									echo 	'<script type="text/javascript">
+												var sel = document.getElementById("marca");
+												var opt = document.createElement("option");
+												opt.value = "',$id_procedencia,'";
+												opt.text = "',$nombre,'";
+												sel.add(opt, null);
+											</script>';
+
+									echo	'<script type="text/javascript">
+												alert("Nueva procedencia registrada con éxito.");
+											</script>';
+								} else {
+									echo	'<script type="text/javascript">
+												alert("Error al registrar.\nProcedencia ya registrada.");
+											</script>';
+								}
+								Conexion::cerrar_conexion();
+                            } ?>
+                        </form>
+                    </div>
+                </div>
+            </div>
+		</div>
+
+		<!-- interacciones con javascript -->
+		<script src="../../js/interaction-producto.js"></script>
+		<script>
+			document.getElementById("input-registrar-marca").disabled = true;
+			function verificar(){
+				if (document.getElementById("input-marca").value == "") {
+					$('#staticBackdrop2').modal('hide');
+				} else {
+					var respuesta = confirm("¿Desea salir?\nSi sale se perderán los cambios realizados.");
+					if(respuesta == true) {
+						document.getElementById("input-marca").value = "";
+						$('#staticBackdrop2').modal('hide');
+					}
+				}
+			}
+			function listaProductos(){
+                window.location.href="productos.php";
+            }
+			/* input nombre marca */
+			function spanNombreMarcaIn(){
+				document.getElementById("input-marca").className =document.getElementById("input-marca").className.replace( /(?:^|\s)input-red(?!\S)/g , '' );
+			}
+			function spanNombreMarcaOut(){
+				document.getElementById("input-marca").value = document.getElementById("input-marca").value.trim();
+				if (document.getElementById("input-marca").value == "") {document.getElementById("input-marca").className += " input-red";}
+			}
+			function validarNombre(){
+				if (document.getElementById("input-marca").value != "") {
+					document.getElementById("input-registrar-marca").disabled = false;
+				} else {
+					document.getElementById("input-registrar-marca").disabled = true;
+				}
+			}
+
+			/* Procedencia -------------------- */
+			function verificarProcedencia(){
+				if (document.getElementById("input-procedencia").value == "") {
+					$('#staticBackdrop3').modal('hide');
+				} else {
+					var respuesta = confirm("¿Desea salir?\nSi sale se perderán los cambios realizados.");
+					if(respuesta == true) {
+						document.getElementById("input-procedencia").value = "";
+						$('#staticBackdrop3').modal('hide');
+					}
+				}
+			}
 		</script>
 		<!-- Javascript de boostrap -->
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
 	</body>
